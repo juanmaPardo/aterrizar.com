@@ -1,21 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aterrizar;
 
-/**
- *
- * @author juanm
- */
-public class Aterrizar {
+import usuario.Usuario;
+import aerolinea.Aerolinea;
+import java.util.LinkedList;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Aterrizar {
+    LinkedList<Aerolinea> aerolineas;
+    TreeSet<Usuario> usuarios;
+
+    public Aterrizar() {
+        aerolineas = new LinkedList<>();
+        usuarios = new TreeSet<>();
     }
     
+    
+    public void agregarAerolinea(Aerolinea aerolinea){
+        aerolineas.add(aerolinea);
+    }
+    
+    public void agregarUsuario(Usuario usuario){
+        usuarios.add(usuario);
+    }
 }

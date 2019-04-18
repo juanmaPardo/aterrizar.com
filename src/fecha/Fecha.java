@@ -16,14 +16,6 @@ public class Fecha implements DatosFecha{
     protected int anio;
 
     public Fecha() {}
-
-    
-    public Fecha(String fecha) throws FormatoFechaIncorrectoException, FechaNoValidaException{//Para el flexible
-        if(cumpleFormato(fecha, "dd/mm/yyyy") ){
-            FechaFormatoLatinoamericano fechaFormatoLatinoamericano = new FechaFormatoLatinoamericano(fecha);
-        }
-        
-    }
     
     public Fecha(String fecha, String dateFormat) throws FormatoFechaIncorrectoException, FechaNoValidaException {
         if(!cumpleFormato(fecha,dateFormat)){

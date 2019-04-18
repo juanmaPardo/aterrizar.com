@@ -4,7 +4,7 @@ import fecha.excepcionesFecha.FechaNoValidaException;
 import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
 
 public class FechaFormatoNorteamericano extends Fecha{
-    final static String DATE_FORMAT = "dd/MM/yyyy";
+    final static String DATE_FORMAT = "MM/dd/yyyy";
     
     public FechaFormatoNorteamericano(String fecha) throws FormatoFechaIncorrectoException, FechaNoValidaException {
         super(fecha,DATE_FORMAT);

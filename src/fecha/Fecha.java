@@ -25,9 +25,7 @@ public class Fecha implements DatosFecha{
         if(!fechaValida(fecha,dateFormat)){
             throw new FechaNoValidaException("La fecha propiciada no es valida");
         }
-        this.dia = this.substraerDia();
-        this.mes = this.substraerMes();
-        this.anio = this.substraerAnio();
+       
     }
     
     protected boolean cumpleFormato(String fecha,String dateFormat){

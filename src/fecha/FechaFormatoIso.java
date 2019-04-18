@@ -8,6 +8,9 @@ public class FechaFormatoIso extends Fecha {
     
     public FechaFormatoIso(String fecha) throws FormatoFechaIncorrectoException, FechaNoValidaException {
         super(fecha,DATE_FORMAT);
+        this.dia = substraerDia(fecha);
+        this.mes = substraerMes(fecha);
+        this.anio = substraerAnio(fecha);
     }
     protected int substraerDia(String fecha){
         return Integer.parseInt(fecha.substring(8,10));

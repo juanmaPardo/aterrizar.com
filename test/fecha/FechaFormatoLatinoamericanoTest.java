@@ -18,9 +18,10 @@ public class FechaFormatoLatinoamericanoTest {
     public FechaFormatoLatinoamericanoTest() {
     }
     
+    @Test
     public void seCreaExitosamenteUnaFechaFormatoLatinoamericanoYFuncionanGetters(){
         try {
-            FechaFormatoLatinoamericano ffl = new FechaFormatoLatinoamericano("12/1/2012");
+            FechaFormatoLatinoamericano ffl = new FechaFormatoLatinoamericano("12/01/2012");
             Assert.assertEquals(12, ffl.getDia());
             Assert.assertEquals(1, ffl.getMes());
             Assert.assertEquals(2012, ffl.getAnio());

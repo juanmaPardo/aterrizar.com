@@ -18,5 +18,9 @@ public class Vuelo {
     public void agregarAsiento(AsientoVuelo asientoVuelo){
         asientosVuelo.add(asientoVuelo);
     }
+
+    public LinkedList<AsientoVuelo> getAsientosVuelo() {
+        return asientosVuelo;
+    }
     
 }

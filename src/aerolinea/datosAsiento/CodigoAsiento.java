@@ -4,11 +4,14 @@ import aerolinea.vuelo.AsientoVuelo;
 import aerolinea.busqueda.FiltroBusqueda;
 
 public class CodigoAsiento implements FiltroBusqueda {
-    String codigoAsiento;
-    String numeroVuelo;
-    String numeroAsiento;
+    private String codigoAsiento;
+    private String numeroVuelo;
+    private String numeroAsiento;
 
-    public CodigoAsiento(String codigoAsiento) {
+    public CodigoAsiento(String codigoAsiento) throws CodigoAsientoException {
+        if(!codigoAsiento.contains("-")){
+            throw new CodigoAsientoException("El formato enviado es incorrecto");
+        }
         this.codigoAsiento = codigoAsiento;
         this.numeroVuelo = codigoAsiento.split("-")[0];
         this.numeroAsiento = codigoAsiento.split("-")[1];

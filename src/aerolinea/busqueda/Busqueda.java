@@ -22,8 +22,8 @@ public class Busqueda {
     //propio de la misma, entonces los meto a todos en una lista y me podes mandar cuantos
     //argumentos se te ocurra que va a seguir funcionando, lo hacemos polimorfico y mas
     //mantenible
-    LinkedList<FiltroBusqueda> filtroBusqueda;
-    LinkedList<ClaseAsiento> filtroClaseAsiento;
+    private LinkedList<FiltroBusqueda> filtroBusqueda;
+    private LinkedList<ClaseAsiento> filtroClaseAsiento;
 
     public Busqueda(FiltroBusqueda[] args) throws ParametrosInsuficienteException {
         filtroBusqueda = new LinkedList<>();

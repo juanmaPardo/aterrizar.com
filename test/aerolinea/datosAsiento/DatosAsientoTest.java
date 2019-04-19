@@ -27,8 +27,15 @@ public class DatosAsientoTest {
         } catch (PrecioNegativoException ex) {
             Assert.assertEquals(true, false);
         }
-        
-        
     }
     
+    @Test(expected = CodigoAsientoException.class)
+    public void fallaCreacionCodigoSeLanzaException() throws CodigoAsientoException{
+        CodigoAsiento codigo = new CodigoAsiento("CualquierCosa");
+    }
+    
+    @Test(expected = PrecioNegativoException.class)
+    public void fallaCreacionPrecioAsientoSeLanzaException() throws PrecioNegativoException{
+        PrecioAsiento precio = new PrecioAsiento(-250);
+    }
 }

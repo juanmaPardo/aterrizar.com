@@ -4,9 +4,9 @@ import aerolinea.datosAsiento.DatosAsiento;
 
 
 public class AsientoVuelo {
-    DatosAsiento datosAsiento;
-    CiudadPartida origen;
-    CiudadDestino destino;
+    private DatosAsiento datosAsiento;
+    private CiudadPartida origen;
+    private CiudadDestino destino;
 
     public AsientoVuelo(DatosAsiento datosAsiento, CiudadPartida origen, CiudadDestino destino) {
         this.datosAsiento = datosAsiento;

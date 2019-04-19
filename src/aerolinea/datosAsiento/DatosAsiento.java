@@ -5,11 +5,11 @@ import aerolinea.datosAsiento.EstadoAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
 
 public class DatosAsiento {
-    CodigoAsiento codigoAsiento;
-    PrecioAsiento precio;
-    ClaseAsiento clase;
-    UbicacionAsiento ubicacion;
-    EstadoAsiento estado;
+    private CodigoAsiento codigoAsiento;
+    private PrecioAsiento precio;
+    private ClaseAsiento clase;
+    private UbicacionAsiento ubicacion;
+    private EstadoAsiento estado;
 
     public DatosAsiento(CodigoAsiento codigoAsiento, PrecioAsiento precio, ClaseAsiento clase, UbicacionAsiento ubicacion, EstadoAsiento estado) {
         this.codigoAsiento = codigoAsiento;

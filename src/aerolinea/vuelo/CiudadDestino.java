@@ -5,8 +5,8 @@ import aerolinea.busqueda.FiltroBusqueda;
 
 public class CiudadDestino extends Ciudad implements FiltroBusqueda{
 
-    public CiudadDestino(String origen) {
-        super(origen);
+    public CiudadDestino(String destino) {
+        super(destino);
     }
 
     @Override

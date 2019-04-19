@@ -3,6 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="TrabajoPracticoAterrizar">
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/horarios/Hora.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/usuario/DniInvalidoException.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/fecha/FechaFormatoIso.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/usuario/PerfilUsuario.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/datosAsiento/ClaseAsiento.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/fecha/FechaFormatoNorteamericano.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/Aerolinea.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/fecha/FechaFormatoLatinoamericano.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/usuario/Usuario.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/AerolineaLanchita.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/datosAsiento/UbicacionAsiento.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/datosAsiento/EstadoAsiento.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/horarios/excepcionesHora/HoraInvalidaException.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/fecha/FechaFlexible.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/test/fecha/FechaFormatoLatinoamericanoTest.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/test/fecha/FechaTest.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/usuario/Busqueda.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/fecha/DatosFecha.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/fecha/Fecha.java</file>
+            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/DatosVuelo.java</file>
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aterrizar/Aterrizar.java</file>
         </group>
     </open-files>

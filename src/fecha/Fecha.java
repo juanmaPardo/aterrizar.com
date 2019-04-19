@@ -68,47 +68,6 @@ public class Fecha implements DatosFecha{
     public int getAnio() {
         return anio;
     }
-
-    @Override
-    public int diasPasaron(DatosFecha a, DatosFecha b) {
-        try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-            
-            Date fechaInicial=dateFormat.parse(a.representacionEnIso());
-            Date fechaFinal=dateFormat.parse(b.representacionEnIso());
-            
-            return (int) ((fechaFinal.getTime()-fechaInicial.getTime())/86400000);
-        } catch (ParseException ex) {
-            Logger.getLogger(Fecha.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    @Override
-    public DatosFecha fechaAnterior(DatosFecha a, DatosFecha b) {
-        if(hayDiferenciaAnios(a,b)){
-            return (a.getAnio() < b.getAnio()) ? a : b;
-        }
-        else if(hayDiferenciaMeses(a,b)){
-            return (a.getMes() < b.getMes()) ? a : b;
-        }
-        else{
-            return (a.getDia() <= b.getDia()) ? a : b;//Si es la misma fecha retorna a
-        }
-    }   
-    
-    private boolean hayDiferenciaAnios(DatosFecha a, DatosFecha b){
-        return a.getAnio() != b.getAnio();
-    }
-    
-    private boolean hayDiferenciaMeses(DatosFecha a, DatosFecha b){
-        return a.getMes() != b.getMes();
-    }
-
-    @Override
-    public String getDateFormat() {
-        return this.DATE_FORMAT;
-    }
     
     @Override
     public String representacionEnIso(){

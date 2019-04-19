@@ -18,6 +18,26 @@ public class DatosAsiento {
         this.ubicacion = ubicacion;
         this.estado = estado;
     }
+
+    public String getCodigoAsiento() {
+        return codigoAsiento.getCodigoAsiento();
+    }
+
+    public double getPrecio() {
+        return precio.getPrecioAsiento();
+    }
+
+    public ClaseAsiento getClaseAsiento() {
+        return clase;
+    }
+
+    public UbicacionAsiento getUbicacion() {
+        return ubicacion;
+    }
+
+    public EstadoAsiento getEstado() {
+        return estado;
+    }
     
     
 }

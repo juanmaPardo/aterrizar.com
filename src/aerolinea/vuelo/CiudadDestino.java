@@ -1,15 +1,17 @@
-package aerolinea.datosAsiento;
+package aerolinea.vuelo;
 
-import aerolinea.vuelo.AsientoVuelo;
 import aerolinea.busqueda.FiltroBusqueda;
 
-public enum UbicacionAsiento implements FiltroBusqueda{
-    VENTANA,
-    CENTRO,
-    PASILLO;
+
+public class CiudadDestino extends Ciudad implements FiltroBusqueda{
+
+    public CiudadDestino(String origen) {
+        super(origen);
+    }
 
     @Override
     public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

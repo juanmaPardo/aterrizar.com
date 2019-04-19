@@ -1,12 +1,15 @@
 package aerolinea;
 
-import aerolinea.datosAsiento.AsientoVuelo;
+import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.Vuelo;
+import aerolinea.datosAsiento.DatosAsiento;
 import aerolinea.datosAsiento.ClaseAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import fecha.DatosFecha;
 import horarios.Hora;
 import java.util.LinkedList;
-import usuario.Busqueda;
+import aerolinea.busqueda.Busqueda;
+import java.util.List;
 
 public class AerolineaLanchita implements Aerolinea {
     private LinkedList<Vuelo> vuelosDisponibles;
@@ -21,14 +24,24 @@ public class AerolineaLanchita implements Aerolinea {
     }
     
     @Override
-    public LinkedList<AsientoVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
-        LinkedList<AsientoVuelo> asientosDisponibles = new LinkedList<>();
-        return asientosDisponibles;
+    public List<DatosAsiento> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoVuelo> asientosDisponibles = obtenerAsientosVuelos();
+        List<DatosAsiento> asientosCumplenSolicitud = parametrosBusqueda.cumplenParametro(asientosDisponibles);
+        return asientosCumplenSolicitud;
+    }
+    
+    private LinkedList<AsientoVuelo> obtenerAsientosVuelos(){
+        LinkedList<AsientoVuelo> asientosVuelos = new LinkedList<>();
+        vuelosDisponibles.forEach(vuelo ->{
+            asientosVuelos.addAll(vuelo.getDatosAsientoVuelo());
+        });
+        return asientosVuelos;
     }
 
     @Override
     public void comprar(String codigoAsiento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

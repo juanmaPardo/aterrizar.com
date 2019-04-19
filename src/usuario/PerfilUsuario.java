@@ -1,5 +1,6 @@
 package usuario;
 
+import aerolinea.busqueda.Busqueda;
 import java.util.LinkedList;
 
 public class PerfilUsuario {

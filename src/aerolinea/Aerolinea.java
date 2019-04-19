@@ -1,14 +1,15 @@
 package aerolinea;
 
-import aerolinea.datosAsiento.AsientoVuelo;
+import aerolinea.datosAsiento.DatosAsiento;
 import fecha.DatosFecha;
 import horarios.Hora;
 import java.util.LinkedList;
+import aerolinea.busqueda.Busqueda;
+import java.util.List;
 
 public interface Aerolinea {
     
-    public LinkedList<AsientoVuelo> asientosDisponibles(String origen,DatosFecha fechaSalida,
-            DatosFecha fechaLlegada,Hora horaSalida, Hora horaLlegada);
+    public List<DatosAsiento> asientosDisponibles(Busqueda parametrosBusqueda);
     
     public void comprar(String codigoAsiento);
 }

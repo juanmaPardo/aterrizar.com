@@ -15,5 +15,16 @@ public class PerfilUsuario {
         busquedas = new LinkedList<>();
     }
     
+    public boolean esVip(){
+        return esVip;
+    }
+    
+    public double dineroGastado(){
+        return dineroGastado;
+    }
+    
+    public LinkedList<Busqueda> busquedasRealizadas(){
+        return busquedas;
+    }
     
 }

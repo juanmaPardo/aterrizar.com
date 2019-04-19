@@ -1,9 +1,12 @@
 package aerolinea;
 
 import aerolinea.datosAsiento.AsientoVuelo;
+import aerolinea.datosAsiento.ClaseAsiento;
+import aerolinea.datosAsiento.UbicacionAsiento;
 import fecha.DatosFecha;
 import horarios.Hora;
 import java.util.LinkedList;
+import usuario.Busqueda;
 
 public class AerolineaLanchita implements Aerolinea {
     private LinkedList<Vuelo> vuelosDisponibles;
@@ -18,9 +21,8 @@ public class AerolineaLanchita implements Aerolinea {
     }
     
     @Override
-    public LinkedList<AsientoVuelo> asientosDisponibles(String origen, DatosFecha fechaSalida, DatosFecha fechaLlegada, Hora horaSalida, Hora horaLlegada) {
+    public LinkedList<AsientoVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         LinkedList<AsientoVuelo> asientosDisponibles = new LinkedList<>();
-        
         return asientosDisponibles;
     }
 

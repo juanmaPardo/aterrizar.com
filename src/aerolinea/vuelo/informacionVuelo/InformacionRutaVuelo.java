@@ -13,11 +13,11 @@ public class InformacionRutaVuelo {
         this.destino = destino;
     }
     
-    public String getOrigen() {
-        return origen.getCiudad();
+    public CiudadPartida getOrigen() {
+        return origen;
     }
 
-    public String getDestino() {
-        return destino.getCiudad();
+    public CiudadDestino getDestino() {
+        return destino;
     }
 }

@@ -10,9 +10,20 @@ import aerolinea.datosAsiento.PrecioAsiento;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
+import aerolinea.vuelo.informacionVuelo.InformacionFechaVuelo;
+import aerolinea.vuelo.informacionVuelo.InformacionHorariosVuelo;
+import aerolinea.vuelo.informacionVuelo.InformacionRutaVuelo;
+import aerolinea.vuelo.informacionVuelo.InformacionVuelo;
 import fecha.Fecha;
 import fecha.FechaFlexible;
+import fecha.excepcionesFecha.FechaNoValidaException;
+import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
+import horarios.Hora;
+import horarios.excepcionesHora.FormatoHoraIncorrectoException;
+import horarios.excepcionesHora.HoraInvalidaException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,6 +60,10 @@ public class VueloTest {
             ClaseAsiento clase2 = new ClaseAsiento(ClasesAsientoVuelo.PRIMERA_CLASE);
             UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             UbicacionAsiento ubicacion2 = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
+            InformacionVuelo infoVuelo;
+            InformacionFechaVuelo infoFecha;
+            InformacionHorariosVuelo infoHorario;
+            InformacionRutaVuelo infoRuta;
             
             
             asiento = new DatosAsiento(codigo, precio1, clase, ubicacion);
@@ -68,11 +83,17 @@ public class VueloTest {
             
             fechaSalida = new FechaFlexible("12/05/2018");
             fechaLlegada = new FechaFlexible("13/05/2018");
+            infoFecha = new InformacionFechaVuelo(fechaSalida, fechaLlegada);
+            infoRuta = new InformacionRutaVuelo(orig, dest);
+            infoHorario = new InformacionHorariosVuelo(new Hora("15:30"), new Hora("12:30"));
+            infoVuelo = new InformacionVuelo(infoFecha, infoHorario, infoRuta);
             
-            vuelo = new Vuelo(orig, dest,fechaSalida,fechaaLlegada);
+            vuelo = new Vuelo(infoVuelo);
           
         } catch (PrecioNegativoException ex) {
             Assert.assertEquals(true, false);
+        } catch (FormatoFechaIncorrectoException | FechaNoValidaException | FormatoHoraIncorrectoException | HoraInvalidaException ex) {
+            Logger.getLogger(VueloTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

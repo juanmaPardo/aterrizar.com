@@ -11,14 +11,18 @@ public class DatosAsiento {
     private UbicacionAsiento ubicacion;
     private EstadoAsiento estado;
 
-    public DatosAsiento(CodigoAsiento codigoAsiento, PrecioAsiento precio, ClaseAsiento clase, UbicacionAsiento ubicacion, EstadoAsiento estado) {
+    public DatosAsiento(CodigoAsiento codigoAsiento, PrecioAsiento precio, ClaseAsiento clase, UbicacionAsiento ubicacion) {
         this.codigoAsiento = codigoAsiento;
         this.precio = precio;
         this.clase = clase;
         this.ubicacion = ubicacion;
-        this.estado = estado;
+        this.estado = new EstadoAsiento(EstadoAsientoVuelo.DISPONIBLE);//Por default esta disponible
     }
-
+    
+    public void reservarAsiento(){
+        estado.reservarAsiento();
+    }
+    
     public String getCodigoAsiento() {
         return codigoAsiento.getCodigoAsiento();
     }
@@ -27,16 +31,16 @@ public class DatosAsiento {
         return precio.getPrecioAsiento();
     }
 
-    public ClaseAsiento getClaseAsiento() {
-        return clase;
+    public ClasesAsientoVuelo getClaseAsiento() {
+        return clase.getClaseAsiento();
     }
 
-    public UbicacionAsiento getUbicacion() {
-        return ubicacion;
+    public UbicacionAsientoVuelo getUbicacion() {
+        return ubicacion.getUbicacionAsiento();
     }
 
-    public EstadoAsiento getEstado() {
-        return estado;
+    public EstadoAsientoVuelo getEstado() {
+        return estado.getEstadoAsiento();
     }
     
     

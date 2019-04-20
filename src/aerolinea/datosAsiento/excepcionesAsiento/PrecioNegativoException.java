@@ -1,4 +1,4 @@
-package aerolinea.datosAsiento;
+package aerolinea.datosAsiento.excepcionesAsiento;
 
 
 public class PrecioNegativoException extends InstantiationException{

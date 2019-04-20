@@ -11,7 +11,7 @@ public class CiudadPartida extends Ciudad implements FiltroBusqueda {
     
     @Override
     public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asiento.getDestino() == ciudad;
     }
     
 }

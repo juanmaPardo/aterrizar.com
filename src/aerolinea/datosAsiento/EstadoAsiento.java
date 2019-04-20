@@ -3,12 +3,24 @@ package aerolinea.datosAsiento;
 import aerolinea.vuelo.AsientoVuelo;
 import aerolinea.busqueda.FiltroBusqueda;
 
-public enum EstadoAsiento implements FiltroBusqueda{
-    RESERVADO,
-    DISPONIBLE;
+public class EstadoAsiento implements FiltroBusqueda{
+    private EstadoAsientoVuelo estadoAsiento;
 
+    public EstadoAsiento(EstadoAsientoVuelo estadoAsiento) {
+        this.estadoAsiento = estadoAsiento;
+    }
+    
+    public void reservarAsiento(){
+        estadoAsiento = EstadoAsientoVuelo.RESERVADO;
+    }
+
+    public EstadoAsientoVuelo getEstadoAsiento() {
+        return estadoAsiento;
+    }
+    
+    
     @Override
     public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asiento.getDatosAsiento().getEstado() == estadoAsiento;
     }
 }

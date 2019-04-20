@@ -1,5 +1,6 @@
 package aerolinea.datosAsiento;
 
+import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.vuelo.AsientoVuelo;
 import aerolinea.busqueda.FiltroBusqueda;
 
@@ -10,7 +11,7 @@ import aerolinea.busqueda.FiltroBusqueda;
 //agregar un parametro y hacer que implemente la interfaz y todo sigue funcionando como lo hacia
 //antes. Basicamente el motivo es para hacer los parametros de busqueda polimorficos
 public class PrecioAsiento implements FiltroBusqueda {
-    double precioAsiento;
+    protected double precioAsiento;
 
     public PrecioAsiento(double precioAsiento) throws PrecioNegativoException {
         if(precioAsiento < 0){
@@ -25,7 +26,7 @@ public class PrecioAsiento implements FiltroBusqueda {
     
     @Override
     public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asiento.getDatosAsiento().getPrecio() == precioAsiento;
     }
     
     

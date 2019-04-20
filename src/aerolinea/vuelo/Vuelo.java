@@ -1,25 +1,24 @@
 package aerolinea.vuelo;
 
 import aerolinea.datosAsiento.DatosAsiento;
+import aerolinea.vuelo.informacionVuelo.InformacionVuelo;
+import fecha.Fecha;
 import java.util.LinkedList;
 
 
 public class Vuelo {
     private LinkedList<DatosAsiento> asientosVuelo;
-    private CiudadPartida origen;
-    private CiudadDestino destino;
+    private InformacionVuelo informacionVuelo;
 
-    public Vuelo(CiudadPartida origen,CiudadDestino destino) {
+    public Vuelo(InformacionVuelo informacionVuelo) {
         asientosVuelo = new LinkedList<>();
-        this.origen = origen;
-        this.destino = destino;
+        this.informacionVuelo = informacionVuelo;
     }
 
-    public Vuelo(LinkedList<DatosAsiento> asientosVuelo,CiudadPartida origen, CiudadDestino destino) {
+    public Vuelo(LinkedList<DatosAsiento> asientosVuelo,InformacionVuelo informacionVuelo) {
         this.asientosVuelo = new LinkedList<>();
         this.asientosVuelo.addAll(asientosVuelo);
-        this.origen = origen;
-        this.destino = destino;
+        this.informacionVuelo = informacionVuelo;
     }
     
     public LinkedList<AsientoVuelo> getDatosAsientoVuelo(){
@@ -37,13 +36,5 @@ public class Vuelo {
     public LinkedList<DatosAsiento> getAsientosVuelo() {
         return asientosVuelo;
     }
-
-    public String getOrigen() {
-        return origen.getCiudad();
-    }
-
-    public String getDestino() {
-        return destino.getCiudad();
-    }
-   
+    
 }

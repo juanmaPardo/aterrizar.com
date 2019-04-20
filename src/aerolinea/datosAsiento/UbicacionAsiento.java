@@ -3,13 +3,20 @@ package aerolinea.datosAsiento;
 import aerolinea.vuelo.AsientoVuelo;
 import aerolinea.busqueda.FiltroBusqueda;
 
-public enum UbicacionAsiento implements FiltroBusqueda{
-    VENTANA,
-    CENTRO,
-    PASILLO;
+public class UbicacionAsiento implements FiltroBusqueda{
+    private UbicacionAsientoVuelo ubicacionAsiento;
 
+    public UbicacionAsiento(UbicacionAsientoVuelo ubicacionAsiento) {
+        this.ubicacionAsiento = ubicacionAsiento;
+    }
+
+    public UbicacionAsientoVuelo getUbicacionAsiento() {
+        return ubicacionAsiento;
+    }
+    
+    
     @Override
     public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asiento.getDatosAsiento().getUbicacion() == ubicacionAsiento;
     }
 }

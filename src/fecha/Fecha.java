@@ -1,5 +1,7 @@
 package fecha;
 
+import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.vuelo.AsientoVuelo;
 import fecha.excepcionesFecha.FechaNoValidaException;
 import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
 import java.text.DateFormat;
@@ -10,7 +12,7 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Fecha implements DatosFecha{
+public class Fecha implements DatosFecha, FiltroBusqueda{
     protected int dia;
     protected int mes;
     protected int anio;
@@ -82,5 +84,10 @@ public class Fecha implements DatosFecha{
     @Override
     public String representacionEnLatinoamericano(){
         return dia + "/" + mes + "/" + anio;
+    }
+
+    @Override
+    public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
+        
     }
 }

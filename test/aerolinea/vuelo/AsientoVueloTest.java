@@ -1,12 +1,15 @@
 package aerolinea.vuelo;
 
 import aerolinea.datosAsiento.ClaseAsiento;
+import aerolinea.datosAsiento.ClasesAsientoVuelo;
 import aerolinea.datosAsiento.CodigoAsiento;
 import aerolinea.datosAsiento.DatosAsiento;
 import aerolinea.datosAsiento.EstadoAsiento;
+import aerolinea.datosAsiento.EstadoAsientoVuelo;
 import aerolinea.datosAsiento.PrecioAsiento;
-import aerolinea.datosAsiento.PrecioNegativoException;
+import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.datosAsiento.UbicacionAsiento;
+import aerolinea.datosAsiento.UbicacionAsientoVuelo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import junit.framework.Assert;
@@ -22,8 +25,10 @@ public class AsientoVueloTest {
         try {
             CodigoAsiento codigo = new CodigoAsiento("G4V3", "13");
             PrecioAsiento precio = new PrecioAsiento(125.50);
+            ClaseAsiento clase = new ClaseAsiento(ClasesAsientoVuelo.TURISTA);
+            UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             
-            DatosAsiento asiento = new DatosAsiento(codigo, precio, ClaseAsiento.TURISTA, UbicacionAsiento.VENTANA, EstadoAsiento.RESERVADO);
+            DatosAsiento asiento = new DatosAsiento(codigo, precio, clase, ubicacion);
             CiudadDestino dest = new CiudadDestino("LA");
             CiudadPartida orig = new CiudadPartida("BA");
             AsientoVuelo asVuelo = new AsientoVuelo(asiento, orig, dest);

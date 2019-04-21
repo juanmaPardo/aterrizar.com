@@ -1,8 +1,9 @@
 package aerolinea.datosAsiento;
 
 import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
-import aerolinea.vuelo.AsientoGeneral;
+import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 
 public class CodigoAsiento implements FiltroBusqueda {
     private String codigoAsiento;
@@ -38,7 +39,8 @@ public class CodigoAsiento implements FiltroBusqueda {
     
 
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
-        return asiento.getDatosAsiento().getCodigoAsiento() == codigoAsiento;
+    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
+        DatosAsientoLanchita datosAsientoLanchita =(DatosAsientoLanchita)asiento.getDatosAsiento();
+        return datosAsientoLanchita.getCodigoAsiento() == codigoAsiento;
     }
 }

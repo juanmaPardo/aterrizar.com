@@ -18,10 +18,10 @@ public class DatosAsientoTest {
         try {
             CodigoAsiento codigo = new CodigoAsiento("G4V3", "13");
             PrecioAsiento precio = new PrecioAsiento(125.50);
-            ClaseAsiento clase = new ClaseAsiento(ClasesAsientoVuelo.TURISTA);
+            ClaseAsientoVuelo clase = new ClaseAsientoVuelo(ClasesAsientoVuelo.TURISTA);
             UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             
-            DatosAsiento asiento = new DatosAsiento(codigo, precio, clase, ubicacion);
+            DatosAsientoLanchita asiento = new DatosAsientoLanchita(codigo, precio, clase, ubicacion);
             
             Assert.assertEquals(asiento.getCodigoAsiento(), "G4V3-13");
             Assert.assertEquals(asiento.getEstado(), EstadoAsientoVuelo.DISPONIBLE);

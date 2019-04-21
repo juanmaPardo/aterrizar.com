@@ -1,13 +1,17 @@
 package horarios;
 
+import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 import horarios.excepcionesHora.FormatoHoraIncorrectoException;
 import horarios.excepcionesHora.HoraInvalidaException;
 import java.util.Arrays;
 
-public class Hora {
+public class Hora implements FiltroBusqueda{
     //Sistema 24hs
     private int hora;
     private int minutos;
+    private String horaFormatoString;
+    
     final static String HORA_FORMAT = "hh:mm";
     public Hora(String hora) throws FormatoHoraIncorrectoException, HoraInvalidaException {
         String[] horasValidas = horasValidas();
@@ -27,6 +31,7 @@ public class Hora {
         
         this.hora = Integer.parseInt(posibleHora);
         this.minutos = Integer.parseInt(posibleMinutos);
+        this.horaFormatoString = hora;
     }
     
     private String[] horasValidas(){
@@ -49,6 +54,15 @@ public class Hora {
 
     public int getMinutos() {
         return minutos;
+    }
+
+    public String getHoraFormatoString() {
+        return horaFormatoString;
+    }
+   
+    @Override
+    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
+        return asiento.getHoraSalida().getHoraFormatoString() == horaFormatoString;
     }
     
     

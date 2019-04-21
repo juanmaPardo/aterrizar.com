@@ -1,9 +1,9 @@
 package aerolinea.vuelo;
 
-import aerolinea.datosAsiento.ClaseAsiento;
+import aerolinea.datosAsiento.ClaseAsientoVuelo;
 import aerolinea.datosAsiento.ClasesAsientoVuelo;
 import aerolinea.datosAsiento.CodigoAsiento;
-import aerolinea.datosAsiento.DatosAsiento;
+import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.datosAsiento.EstadoAsiento;
 import aerolinea.datosAsiento.EstadoAsientoVuelo;
 import aerolinea.datosAsiento.PrecioAsiento;
@@ -30,12 +30,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class VueloTest {
-    LinkedList<DatosAsiento> asientos;
-    DatosAsiento asiento;
-    DatosAsiento asiento1;
-    DatosAsiento asiento2;
-    DatosAsiento asiento3;
-    DatosAsiento asiento4;
+    LinkedList<DatosAsientoLanchita> asientos;
+    DatosAsientoLanchita asiento;
+    DatosAsientoLanchita asiento1;
+    DatosAsientoLanchita asiento2;
+    DatosAsientoLanchita asiento3;
+    DatosAsientoLanchita asiento4;
     CiudadPartida orig;
     CiudadDestino dest;
     Fecha fechaSalida;
@@ -55,9 +55,9 @@ public class VueloTest {
             PrecioAsiento precio1 = new PrecioAsiento(125.50);
             PrecioAsiento precio2 = new PrecioAsiento(250.50);
             PrecioAsiento precio3 = new PrecioAsiento(500);
-            ClaseAsiento clase = new ClaseAsiento(ClasesAsientoVuelo.TURISTA);
-            ClaseAsiento clase1 = new ClaseAsiento(ClasesAsientoVuelo.EJECUTIVO);
-            ClaseAsiento clase2 = new ClaseAsiento(ClasesAsientoVuelo.PRIMERA_CLASE);
+            ClaseAsientoVuelo clase = new ClaseAsientoVuelo(ClasesAsientoVuelo.TURISTA);
+            ClaseAsientoVuelo clase1 = new ClaseAsientoVuelo(ClasesAsientoVuelo.EJECUTIVO);
+            ClaseAsientoVuelo clase2 = new ClaseAsientoVuelo(ClasesAsientoVuelo.PRIMERA_CLASE);
             UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             UbicacionAsiento ubicacion2 = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
             InformacionVuelo infoVuelo;
@@ -66,11 +66,11 @@ public class VueloTest {
             InformacionRutaVuelo infoRuta;
             
             
-            asiento = new DatosAsiento(codigo, precio1, clase, ubicacion);
-            asiento1 = new DatosAsiento(codigo1, precio1, clase, ubicacion);
-            asiento2 = new DatosAsiento(codigo2, precio2, clase1, ubicacion2);
-            asiento3 = new DatosAsiento(codigo3, precio2, clase1, ubicacion2);
-            asiento4 = new DatosAsiento(codigo4, precio3, clase2, ubicacion);
+            asiento = new DatosAsientoLanchita(codigo, precio1, clase, ubicacion);
+            asiento1 = new DatosAsientoLanchita(codigo1, precio1, clase, ubicacion);
+            asiento2 = new DatosAsientoLanchita(codigo2, precio2, clase1, ubicacion2);
+            asiento3 = new DatosAsientoLanchita(codigo3, precio2, clase1, ubicacion2);
+            asiento4 = new DatosAsientoLanchita(codigo4, precio3, clase2, ubicacion);
             asientos = new LinkedList<>();
             asientos.add(asiento);
             asientos.add(asiento1);
@@ -108,7 +108,7 @@ public class VueloTest {
     
     @Test
     public void seObtieneLaListaDeAsientosDelVuelo(){
-        LinkedList<AsientoGeneral> resultado = vuelo.getDatosAsientoVuelo();
+        LinkedList<AsientoVueloLanchita> resultado = vuelo.getDatosAsientoVuelo();
         resultado.forEach(asiento ->{
             Assert.assertEquals(asiento.getDestino(), "LA");
             Assert.assertEquals(asiento.getOrigen(), "BA");

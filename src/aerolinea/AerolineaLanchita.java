@@ -1,9 +1,9 @@
 package aerolinea;
 
-import aerolinea.vuelo.AsientoGeneral;
+import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.vuelo.Vuelo;
-import aerolinea.datosAsiento.DatosAsiento;
-import aerolinea.datosAsiento.ClaseAsiento;
+import aerolinea.datosAsiento.DatosAsientoLanchita;
+import aerolinea.datosAsiento.ClaseAsientoVuelo;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import fecha.DatosFecha;
 import horarios.Hora;
@@ -24,14 +24,14 @@ public class AerolineaLanchita implements Aerolinea {
     }
     
     @Override
-    public List<DatosAsiento> asientosDisponibles(Busqueda parametrosBusqueda) {
-        LinkedList<AsientoGeneral> asientosDisponibles = obtenerAsientosVuelos();
-        List<DatosAsiento> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+    public List<DatosAsientoLanchita> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoVueloLanchita> asientosDisponibles = obtenerAsientosVuelos();
+        List<DatosAsientoLanchita> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
         return asientosCumplenSolicitud;
     }
     
-    private LinkedList<AsientoGeneral> obtenerAsientosVuelos(){
-        LinkedList<AsientoGeneral> asientosVuelos = new LinkedList<>();
+    private LinkedList<AsientoVueloLanchita> obtenerAsientosVuelos(){
+        LinkedList<AsientoVueloLanchita> asientosVuelos = new LinkedList<>();
         vuelosDisponibles.forEach(vuelo ->{
             asientosVuelos.addAll(vuelo.getDatosAsientoVuelo());
         });

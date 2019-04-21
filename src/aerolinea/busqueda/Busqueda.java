@@ -1,12 +1,13 @@
 package aerolinea.busqueda;
 
 import aerolinea.busqueda.ExcepcionesBusqueda.ParametrosInsuficienteException;
-import aerolinea.vuelo.AsientoGeneral;
-import aerolinea.datosAsiento.DatosAsiento;
-import aerolinea.datosAsiento.ClaseAsiento;
+import aerolinea.vuelo.AsientoVueloLanchita;
+import aerolinea.datosAsiento.DatosAsientoLanchita;
+import aerolinea.datosAsiento.ClaseAsientoVuelo;
 import aerolinea.datosAsiento.EstadoAsiento;
 import aerolinea.datosAsiento.PrecioAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import fecha.DatosFecha;
@@ -23,7 +24,7 @@ public class Busqueda {
     //argumentos se te ocurra que va a seguir funcionando, lo hacemos polimorfico y mas
     //mantenible
     private LinkedList<FiltroBusqueda> filtroBusqueda;
-    private LinkedList<ClaseAsiento> filtroClaseAsiento;
+    private LinkedList<ClaseAsientoVuelo> filtroClaseAsiento;
 
     public Busqueda(FiltroBusqueda[] args) throws ParametrosInsuficienteException {
         filtroBusqueda = new LinkedList<>();
@@ -38,8 +39,8 @@ public class Busqueda {
             throw new ParametrosInsuficienteException("Se debe propiciar una fecha");
         }
         for(int i=0 ; i < args.length ; i++){
-            if(args[i] instanceof ClaseAsiento){
-                filtroClaseAsiento.add((ClaseAsiento)args[i]);
+            if(args[i] instanceof ClaseAsientoVuelo){
+                filtroClaseAsiento.add((ClaseAsientoVuelo)args[i]);
             }
             else{
                 filtroBusqueda.add(args[i]);
@@ -59,21 +60,21 @@ public class Busqueda {
         return parametros.stream().anyMatch(elem -> elem instanceof CiudadDestino);
     }
     
-    public List<AsientoGeneral> asientosCumplenRequisitoBusqueda(LinkedList<AsientoGeneral> disponibles){
-        List<AsientoGeneral> cumplenFiltroCaracterUnico = disponibles.stream()
+    public List<AsientoGeneralVuelo> asientosCumplenRequisitoBusqueda(LinkedList<AsientoGeneralVuelo> disponibles){
+        List<AsientoGeneralVuelo> cumplenFiltroCaracterUnico = disponibles.stream()
                 .filter(asientoVuelo -> cumpleTodosRequisitos(asientoVuelo)).collect(Collectors.toList());
         
-        List<AsientoGeneral> asientosCumplenTodosFiltros = cumplenFiltroCaracterUnico.stream()
+        List<AsientoGeneralVuelo> asientosCumplenTodosFiltros = cumplenFiltroCaracterUnico.stream()
                 .filter(asientoVuelo -> claseAsientoAceptable(asientoVuelo,filtroClaseAsiento)).collect(Collectors.toList());
         
         return asientosCumplenTodosFiltros;
     }
     
-    private boolean claseAsientoAceptable(AsientoGeneral asiento,LinkedList<ClaseAsiento> asientosAceptables){
-        return asientosAceptables.contains(asiento.getDatosAsiento().getUbicacion());
+    private boolean claseAsientoAceptable(AsientoGeneralVuelo asiento,LinkedList<ClaseAsientoVuelo> asientosAceptables){
+        return asientosAceptables.contains(asiento.getDatosAsiento().getUbicacionAsiento());
     }
     
-    private boolean cumpleTodosRequisitos(AsientoGeneral asientoVuelo){
+    private boolean cumpleTodosRequisitos(AsientoGeneralVuelo asientoVuelo){
         return filtroBusqueda.stream().
                 allMatch(filtroBusq -> filtroBusq.asientoVueloCumpleParametro(asientoVuelo));
     }

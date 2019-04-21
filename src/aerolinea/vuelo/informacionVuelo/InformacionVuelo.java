@@ -4,28 +4,22 @@ import fecha.Fecha;
 import horarios.Hora;
 
 public class InformacionVuelo {
-    private InformacionFechaVuelo informacionFecha;
-    private InformacionHorariosVuelo informacionHorarios;
-    private InformacionRutaVuelo informacionRuta;
+    private Fecha fechaSalida;
+    private Hora horaSalida;
 
-    public InformacionVuelo(InformacionFechaVuelo informacionFecha, InformacionHorariosVuelo informacionHorarios, InformacionRutaVuelo informacionRuta) {
-        this.informacionFecha = informacionFecha;
-        this.informacionHorarios = informacionHorarios;
-        this.informacionRuta = informacionRuta;
-    }
-
-    public InformacionRutaVuelo getInformacionRuta() {
-        return informacionRuta;
-    }
-    
-    public InformacionFechaVuelo getInformacionFecha() {
-        return informacionFecha;
+    public InformacionVuelo(Fecha fechaSalida, Hora horaSalida) {
+        this.fechaSalida = fechaSalida;
+        this.horaSalida = horaSalida;
+        
     }
 
-    public InformacionHorariosVuelo getInformacionHorarios() {
-        return informacionHorarios;
+    public Fecha getFechaSalida() {
+        return fechaSalida;
     }
-    
+
+    public Hora getHoraSalida() {
+        return horaSalida;
+    }  
     
     
 }

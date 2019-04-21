@@ -10,8 +10,8 @@ public class CiudadDestino extends Ciudad implements FiltroBusqueda{
     }
 
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
-        return asiento.getOrigen() == ciudad;
+    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
+        return asiento.getOrigen().getCiudad() == ciudad;
     }
     
 }

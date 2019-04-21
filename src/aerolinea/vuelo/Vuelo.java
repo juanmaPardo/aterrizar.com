@@ -21,10 +21,10 @@ public class Vuelo {
         this.informacionVuelo = informacionVuelo;
     }
     
-    public LinkedList<AsientoVuelo> getDatosAsientoVuelo(){
-        LinkedList<AsientoVuelo> datoAsientoVuelo = new LinkedList<>();
+    public LinkedList<AsientoGeneral> getDatosAsientoVuelo(){
+        LinkedList<AsientoGeneral> datoAsientoVuelo = new LinkedList<>();
         asientosVuelo.forEach(asiento ->{
-            datoAsientoVuelo.add(new AsientoVuelo(asiento, informacionVuelo.getInformacionRuta().getOrigen(),  informacionVuelo.getInformacionRuta().getDestino()));
+            datoAsientoVuelo.add(new AsientoGeneral(asiento, informacionVuelo.getInformacionRuta().getOrigen(),  informacionVuelo.getInformacionRuta().getDestino()));
         });
         return datoAsientoVuelo;
     }

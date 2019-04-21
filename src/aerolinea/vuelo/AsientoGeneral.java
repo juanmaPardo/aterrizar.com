@@ -3,19 +3,14 @@ package aerolinea.vuelo;
 import aerolinea.datosAsiento.DatosAsiento;
 
 
-public class AsientoVuelo {
-    private DatosAsiento datosAsiento;
+public class AsientoGeneral extends AsientoGeneralVuelo {
     private CiudadPartida origen;
     private CiudadDestino destino;
 
-    public AsientoVuelo(DatosAsiento datosAsiento, CiudadPartida origen, CiudadDestino destino) {
-        this.datosAsiento = datosAsiento;
+    public AsientoGeneral(DatosAsiento datosAsiento, CiudadPartida origen, CiudadDestino destino) {
+        super(datosAsiento);
         this.origen = origen;
         this.destino = destino;
-    }
-
-    public DatosAsiento getDatosAsiento() {
-        return datosAsiento;
     }
 
     public String getOrigen() {

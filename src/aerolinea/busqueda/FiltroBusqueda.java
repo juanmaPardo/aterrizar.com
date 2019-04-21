@@ -1,8 +1,8 @@
 package aerolinea.busqueda;
 
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 
 public interface FiltroBusqueda {
     
-    public boolean asientoVueloCumpleParametro(AsientoVuelo asiento);
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento);
 }

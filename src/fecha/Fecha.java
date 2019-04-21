@@ -1,7 +1,7 @@
 package fecha;
 
 import aerolinea.busqueda.FiltroBusqueda;
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 import fecha.excepcionesFecha.FechaNoValidaException;
 import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
 import java.text.DateFormat;
@@ -87,7 +87,7 @@ public class Fecha implements DatosFecha, FiltroBusqueda{
     }
 
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
-        
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
+        asiento.getDatosAsiento().
     }
 }

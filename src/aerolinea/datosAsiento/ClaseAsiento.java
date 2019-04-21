@@ -1,6 +1,6 @@
 package aerolinea.datosAsiento;
 
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.busqueda.FiltroBusqueda;
 
 public class ClaseAsiento implements FiltroBusqueda{
@@ -15,7 +15,7 @@ public class ClaseAsiento implements FiltroBusqueda{
     }
     
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
         return asiento.getDatosAsiento().getClaseAsiento() == claseAsiento;
     }
 }

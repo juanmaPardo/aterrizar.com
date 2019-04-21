@@ -1,7 +1,7 @@
 package aerolinea.busqueda;
 
 import aerolinea.busqueda.ExcepcionesBusqueda.ParametrosInsuficienteException;
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.datosAsiento.DatosAsiento;
 import aerolinea.datosAsiento.ClaseAsiento;
 import aerolinea.datosAsiento.EstadoAsiento;
@@ -59,25 +59,21 @@ public class Busqueda {
         return parametros.stream().anyMatch(elem -> elem instanceof CiudadDestino);
     }
     
-    public List<DatosAsiento> cumplenParametro(LinkedList<AsientoVuelo> disponibles){
-        List<AsientoVuelo> cumplenFiltroCaracterUnico = disponibles.stream()
+    public List<AsientoGeneral> asientosCumplenRequisitoBusqueda(LinkedList<AsientoGeneral> disponibles){
+        List<AsientoGeneral> cumplenFiltroCaracterUnico = disponibles.stream()
                 .filter(asientoVuelo -> cumpleTodosRequisitos(asientoVuelo)).collect(Collectors.toList());
         
-        List<AsientoVuelo> cumplenFiltroClase = cumplenFiltroCaracterUnico.stream()
+        List<AsientoGeneral> asientosCumplenTodosFiltros = cumplenFiltroCaracterUnico.stream()
                 .filter(asientoVuelo -> claseAsientoAceptable(asientoVuelo,filtroClaseAsiento)).collect(Collectors.toList());
-                
-        List<DatosAsiento> asientosCumplenFiltro = cumplenFiltroCaracterUnico.stream()
-                .map(asientoVuelo -> asientoVuelo.getDatosAsiento()).collect(Collectors.toList());
         
-        
-        return asientosCumplenFiltro;
+        return asientosCumplenTodosFiltros;
     }
     
-    private boolean claseAsientoAceptable(AsientoVuelo asiento,LinkedList<ClaseAsiento> asientosAceptables){
+    private boolean claseAsientoAceptable(AsientoGeneral asiento,LinkedList<ClaseAsiento> asientosAceptables){
         return asientosAceptables.contains(asiento.getDatosAsiento().getUbicacion());
     }
     
-    private boolean cumpleTodosRequisitos(AsientoVuelo asientoVuelo){
+    private boolean cumpleTodosRequisitos(AsientoGeneral asientoVuelo){
         return filtroBusqueda.stream().
                 allMatch(filtroBusq -> filtroBusq.asientoVueloCumpleParametro(asientoVuelo));
     }

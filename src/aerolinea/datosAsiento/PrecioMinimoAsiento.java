@@ -1,7 +1,7 @@
 package aerolinea.datosAsiento;
 
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 
 public class PrecioMinimoAsiento extends PrecioAsiento{
 
@@ -10,7 +10,7 @@ public class PrecioMinimoAsiento extends PrecioAsiento{
     }
     
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
         return asiento.getDatosAsiento().getPrecio() >= precioAsiento;
     }
 }

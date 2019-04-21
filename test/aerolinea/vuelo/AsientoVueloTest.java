@@ -31,7 +31,7 @@ public class AsientoVueloTest {
             DatosAsiento asiento = new DatosAsiento(codigo, precio, clase, ubicacion);
             CiudadDestino dest = new CiudadDestino("LA");
             CiudadPartida orig = new CiudadPartida("BA");
-            AsientoVuelo asVuelo = new AsientoVuelo(asiento, orig, dest);
+            AsientoGeneral asVuelo = new AsientoGeneral(asiento, orig, dest);
             Assert.assertEquals(asVuelo.getDatosAsiento(), asiento);
             Assert.assertEquals(asVuelo.getOrigen(), "BA");
             Assert.assertEquals(asVuelo.getDestino(), "LA");

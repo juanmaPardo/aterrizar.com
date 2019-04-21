@@ -1,6 +1,6 @@
 package aerolinea;
 
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.Vuelo;
 import aerolinea.datosAsiento.DatosAsiento;
 import aerolinea.datosAsiento.ClaseAsiento;
@@ -25,13 +25,13 @@ public class AerolineaLanchita implements Aerolinea {
     
     @Override
     public List<DatosAsiento> asientosDisponibles(Busqueda parametrosBusqueda) {
-        LinkedList<AsientoVuelo> asientosDisponibles = obtenerAsientosVuelos();
-        List<DatosAsiento> asientosCumplenSolicitud = parametrosBusqueda.cumplenParametro(asientosDisponibles);
+        LinkedList<AsientoGeneral> asientosDisponibles = obtenerAsientosVuelos();
+        List<DatosAsiento> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
         return asientosCumplenSolicitud;
     }
     
-    private LinkedList<AsientoVuelo> obtenerAsientosVuelos(){
-        LinkedList<AsientoVuelo> asientosVuelos = new LinkedList<>();
+    private LinkedList<AsientoGeneral> obtenerAsientosVuelos(){
+        LinkedList<AsientoGeneral> asientosVuelos = new LinkedList<>();
         vuelosDisponibles.forEach(vuelo ->{
             asientosVuelos.addAll(vuelo.getDatosAsientoVuelo());
         });

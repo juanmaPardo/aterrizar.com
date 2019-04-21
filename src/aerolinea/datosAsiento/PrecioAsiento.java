@@ -1,7 +1,7 @@
 package aerolinea.datosAsiento;
 
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.busqueda.FiltroBusqueda;
 
 //Esta clases no serian necesarias si no fuese por la busqueda, todo esto se esta haciendo
@@ -25,7 +25,7 @@ public class PrecioAsiento implements FiltroBusqueda {
     }
     
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoVuelo asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
         return asiento.getDatosAsiento().getPrecio() == precioAsiento;
     }
     

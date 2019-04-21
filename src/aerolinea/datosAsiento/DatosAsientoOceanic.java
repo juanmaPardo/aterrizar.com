@@ -1,12 +1,12 @@
 
 package aerolinea.datosAsiento;
 
-import aerolinea.vuelo.AsientoVuelo;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import fecha.FechaFormatoLatinoamericano;
 
-public class DatosAsientoOceanic extends AsientoVuelo{
+public class DatosAsientoOceanic extends AsientoGeneral{
     private String horaDeSalida;
     private FechaFormatoLatinoamericano fechaDeSalida;
     

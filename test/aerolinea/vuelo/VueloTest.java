@@ -108,7 +108,7 @@ public class VueloTest {
     
     @Test
     public void seObtieneLaListaDeAsientosDelVuelo(){
-        LinkedList<AsientoVuelo> resultado = vuelo.getDatosAsientoVuelo();
+        LinkedList<AsientoGeneral> resultado = vuelo.getDatosAsientoVuelo();
         resultado.forEach(asiento ->{
             Assert.assertEquals(asiento.getDestino(), "LA");
             Assert.assertEquals(asiento.getOrigen(), "BA");

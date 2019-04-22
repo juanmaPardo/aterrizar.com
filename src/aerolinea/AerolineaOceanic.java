@@ -4,11 +4,15 @@ package aerolinea;
 import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.vuelo.AsientoGeneralVuelo;
+import aerolinea.vuelo.Vuelo;
+import java.util.LinkedList;
 import java.util.List;
 
-public class AerolineaOceanic implements Aerolinea{
+public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
     
-    public AerolineaOceanic(){};
+    public AerolineaOceanic(){
+        super();
+    }
     
     public String modificarCodigoCiudad (String codigoCiudad){
         String nuevoCodigoCiudad;
@@ -48,8 +52,6 @@ public class AerolineaOceanic implements Aerolinea{
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
     
 }

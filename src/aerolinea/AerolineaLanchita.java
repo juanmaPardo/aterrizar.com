@@ -13,16 +13,14 @@ import aerolinea.datosAsiento.DatosAsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import java.util.List;
 
-public class AerolineaLanchita implements Aerolinea {
-    private LinkedList<Vuelo> vuelosDisponibles;
+public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
 
     public AerolineaLanchita() {
-        vuelosDisponibles = new LinkedList<>();
+        super();
     }
 
     public AerolineaLanchita(LinkedList<Vuelo> vuelosDisponibles) {
-        this.vuelosDisponibles = new LinkedList<>();
-        this.vuelosDisponibles.addAll(vuelosDisponibles);
+        super(vuelosDisponibles);
     }
     
     @Override

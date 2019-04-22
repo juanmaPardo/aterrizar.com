@@ -5,14 +5,15 @@ import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import fecha.FechaFormatoLatinoamericano;
+import horarios.Hora;
 
 public class DatosAsientoOceanic extends DatosAsientoGeneral{
-    private String horaDeSalida;
+    private Hora horaDeSalida;
     private FechaFormatoLatinoamericano fechaDeSalida;
     private Integer numeroDeAsiento;
     private String codigoDeVuelo;
     
-    public DatosAsientoOceanic (PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento, String horaDeSalida,FechaFormatoLatinoamericano fechaDeSalida, Integer numeroDeAsiento, String codigoDeVuelo ){
+    public DatosAsientoOceanic (PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento, Hora horaDeSalida,FechaFormatoLatinoamericano fechaDeSalida, Integer numeroDeAsiento, String codigoDeVuelo ){
         super(precio, clase,ubicacionAsiento);
         this.horaDeSalida = horaDeSalida;
         this.fechaDeSalida = fechaDeSalida;  
@@ -20,7 +21,7 @@ public class DatosAsientoOceanic extends DatosAsientoGeneral{
         this.codigoDeVuelo = codigoDeVuelo;
     }
     
-    public String getHoraDeSalida(){
+    public Hora getHoraDeSalida(){
         return horaDeSalida;
     }
     

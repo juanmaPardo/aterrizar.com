@@ -7,11 +7,12 @@ import java.util.LinkedList;
 import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.DatosAsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
+import aerolinea.vuelo.Vuelo;
 import java.util.List;
 
 public interface Aerolinea {
     
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda);
-    
+     
     public void comprar(String codigoAsiento);
 }

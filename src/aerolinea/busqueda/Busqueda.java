@@ -26,7 +26,7 @@ public class Busqueda {
     private LinkedList<FiltroBusqueda> filtroBusqueda;
     private LinkedList<ClaseAsientoVuelo> filtroClaseAsiento;
 
-    public Busqueda(FiltroBusqueda[] args) throws ParametrosInsuficienteException {
+    public Busqueda(FiltroBusqueda... args) throws ParametrosInsuficienteException {
         filtroBusqueda = new LinkedList<>();
         filtroClaseAsiento = new LinkedList<>();
         if(!contieneCiudadOrigen(Arrays.asList(args))){

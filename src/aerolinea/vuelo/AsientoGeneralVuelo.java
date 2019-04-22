@@ -5,7 +5,7 @@ import aerolinea.datosAsiento.DatosAsientoLanchita;
 import fecha.Fecha;
 import horarios.Hora;
 
-public class AsientoGeneralVuelo {
+public class AsientoGeneralVuelo implements AsientoGeneral{
     private DatosAsientoGeneral datosAsiento;
     private CiudadDestino destino;
     private CiudadPartida origen;
@@ -20,23 +20,28 @@ public class AsientoGeneralVuelo {
         this.horaSalida = horaSalida;
     }
 
+    @Override
     public CiudadDestino getDestino() {
         return destino;
     }
 
+    @Override
     public CiudadPartida getOrigen() {
         return origen;
     }
 
     
+    @Override
     public DatosAsientoGeneral getDatosAsiento() {
         return datosAsiento;
     }
 
+    @Override
     public Fecha getFechaSalida() {
         return fechaSalida;
     }
 
+    @Override
     public Hora getHoraSalida() {
         return horaSalida;
     }

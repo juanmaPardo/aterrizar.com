@@ -1,6 +1,7 @@
 package horarios;
 
 import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import horarios.excepcionesHora.FormatoHoraIncorrectoException;
 import horarios.excepcionesHora.HoraInvalidaException;
@@ -61,7 +62,7 @@ public class Hora implements FiltroBusqueda{
     }
    
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
         return asiento.getHoraSalida().getHoraFormatoString() == horaFormatoString;
     }
     

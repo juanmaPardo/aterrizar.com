@@ -3,6 +3,7 @@ package aerolinea.datosAsiento;
 import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
 import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 
 public class CodigoAsiento implements FiltroBusqueda {
@@ -39,7 +40,7 @@ public class CodigoAsiento implements FiltroBusqueda {
     
 
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
         DatosAsientoLanchita datosAsientoLanchita =(DatosAsientoLanchita)asiento.getDatosAsiento();
         return datosAsientoLanchita.getCodigoAsiento() == codigoAsiento;
     }

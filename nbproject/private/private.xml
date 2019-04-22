@@ -40,12 +40,21 @@
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar/src/aerolinea/vuelo/AsientoGeneralVuelo.java</file>
         </group>
         <group>
-            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/Aerolinea.java</file>
-            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/vuelo/Vuelo.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/test/aerolinea/busqueda/BusquedaTest.java</file>
             <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/busqueda/Busqueda.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/Aerolinea.java</file>
             <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoGeneral.java</file>
-            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/vuelo/AsientoVueloLanchita.java</file>
             <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/AerolineaOceanic.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/test/aerolinea/vuelo/VueloTest.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/vuelo/AsientoGeneral.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/vuelo/AsientoGeneralVuelo.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/vuelo/Ciudad.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/test/aerolinea/vuelo/CiudadDestinoTest.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/vuelo/CiudadDestino.java</file>
+            <file>file:/home/nahuel/Escritorio/Undav/Programas%20Java/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
         </group>
     </open-files>
 </project-private>

@@ -7,11 +7,11 @@ import aerolinea.datosAsiento.UbicacionAsiento;
 public class DatosAsientoLanchita extends DatosAsientoGeneral{
     private CodigoAsiento codigoAsiento;
 
-    public DatosAsientoLanchita(CodigoAsiento codigoAsiento, PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsientoVuelo ubicacionAsiento, EstadoAsientoVuelo estado) {
-        super(precio, clase, ubicacionAsiento, estado);
+    public DatosAsientoLanchita(CodigoAsiento codigoAsiento, PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento) {
+        super(precio, clase, ubicacionAsiento);
         this.codigoAsiento = codigoAsiento;
     }
-    
+
     
    /* public void reservarAsiento(){
         

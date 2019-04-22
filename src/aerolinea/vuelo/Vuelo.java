@@ -1,5 +1,6 @@
 package aerolinea.vuelo;
 
+import aerolinea.datosAsiento.DatosAsientoGeneral;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.vuelo.informacionVuelo.InformacionVuelo;
 import fecha.Fecha;
@@ -8,7 +9,7 @@ import java.util.LinkedList;
 
 
 public class Vuelo {
-    private LinkedList<DatosAsientoLanchita> asientosVuelo;
+    private LinkedList<DatosAsientoGeneral> asientosVuelo;
     private CiudadPartida origen;
     private CiudadDestino destino;
     private Hora horaSalida;
@@ -23,7 +24,7 @@ public class Vuelo {
     }
 
 
-    public Vuelo(LinkedList<DatosAsientoLanchita> asientosVuelo,CiudadPartida origen, CiudadDestino destino, Hora horaSalida, Fecha fechaSalida) {
+    public Vuelo(LinkedList<DatosAsientoGeneral> asientosVuelo,CiudadPartida origen, CiudadDestino destino, Hora horaSalida, Fecha fechaSalida) {
         this.asientosVuelo = new LinkedList<>();
         this.asientosVuelo.addAll(asientosVuelo);
         this.origen = origen;
@@ -35,7 +36,7 @@ public class Vuelo {
     public LinkedList<AsientoVueloLanchita> getDatosAsientoVuelo(){
         LinkedList<AsientoVueloLanchita> datoAsientoVuelo = new LinkedList<>();
         asientosVuelo.forEach(asiento ->{
-            datoAsientoVuelo.add(new AsientoVueloLanchita(origen, destino, asiento, fechaSalida, horaSalida));
+            datoAsientoVuelo.add(new AsientoVueloLanchita(asiento, destino, origen, fechaSalida, horaSalida));
         });
         return datoAsientoVuelo;
     }
@@ -44,7 +45,7 @@ public class Vuelo {
         asientosVuelo.add(asientoVuelo);
     }
 
-    public LinkedList<DatosAsientoLanchita> getAsientosVuelo() {
+    public LinkedList<DatosAsientoGeneral> getAsientosVuelo() {
         return asientosVuelo;
     }
     

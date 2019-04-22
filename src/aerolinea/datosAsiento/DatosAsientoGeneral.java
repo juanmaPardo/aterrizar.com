@@ -7,31 +7,34 @@ import horarios.Hora;
 public class DatosAsientoGeneral {
     protected PrecioAsiento precio;
     protected ClaseAsientoVuelo clase;
-    protected UbicacionAsientoVuelo ubicacionAsiento;
-    protected EstadoAsientoVuelo estado;
+    protected UbicacionAsiento ubicacionAsiento;
+    protected EstadoAsiento estado;
 
-    public DatosAsientoGeneral(PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsientoVuelo ubicacionAsiento, EstadoAsientoVuelo estado) {
+    public DatosAsientoGeneral(PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento) {
         this.precio = precio;
         this.clase = clase;
         this.ubicacionAsiento = ubicacionAsiento;
-        this.estado = estado;
+        this.estado = new EstadoAsiento(EstadoAsientoVuelo.DISPONIBLE);
     }
+
+    
 
 
     public PrecioAsiento getPrecio() {
         return precio;
     }
 
-    public ClaseAsientoVuelo getClase() {
+    public ClaseAsientoVuelo getClaseAsiento() {
         return clase;
     }
 
-    public UbicacionAsientoVuelo getUbicacionAsiento() {
+    public UbicacionAsiento getUbicacionAsiento() {
         return ubicacionAsiento;
     }
 
-    public EstadoAsientoVuelo getEstado() {
+    public EstadoAsiento getEstado() {
         return estado;
-    }    
+    }
+
     
 }

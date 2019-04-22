@@ -3,6 +3,7 @@ package aerolinea;
 
 import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 import java.util.List;
 
 public class AerolineaOceanic implements Aerolinea{
@@ -36,13 +37,15 @@ public class AerolineaOceanic implements Aerolinea{
     
     public Boolean reservar(String dni, String codigoVuelo, Integer numeroDeAsiento);*/
 
+   
+
     @Override
-    public List<DatosAsientoLanchita> asientosDisponibles(Busqueda parametrosBusqueda) {
+    public void comprar(String codigoAsiento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void comprar(String codigoAsiento) {
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

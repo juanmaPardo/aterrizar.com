@@ -24,10 +24,10 @@ public class DatosAsientoTest {
             DatosAsientoLanchita asiento = new DatosAsientoLanchita(codigo, precio, clase, ubicacion);
             
             Assert.assertEquals(asiento.getCodigoAsiento(), "G4V3-13");
-            Assert.assertEquals(asiento.getEstado(), EstadoAsientoVuelo.DISPONIBLE);
-            Assert.assertEquals(asiento.getPrecio(), 125.50);
-            Assert.assertEquals(asiento.getUbicacion(), UbicacionAsientoVuelo.VENTANA);
-            Assert.assertEquals(asiento.getClaseAsiento(), ClasesAsientoVuelo.TURISTA);
+            Assert.assertEquals(asiento.getEstado().getEstadoAsiento(), EstadoAsientoVuelo.DISPONIBLE);
+            Assert.assertEquals(asiento.getPrecio().getPrecioAsiento(), 125.50);
+            Assert.assertEquals(asiento.getUbicacionAsiento().getUbicacionAsiento(), UbicacionAsientoVuelo.VENTANA);
+            Assert.assertEquals(asiento.getClaseAsiento().getClaseAsiento(), ClasesAsientoVuelo.TURISTA);
         } catch (PrecioNegativoException ex) {
             Assert.assertEquals(true, false);
         }

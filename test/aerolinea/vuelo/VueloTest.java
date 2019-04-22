@@ -3,6 +3,7 @@ package aerolinea.vuelo;
 import aerolinea.datosAsiento.ClaseAsientoVuelo;
 import aerolinea.datosAsiento.ClasesAsientoVuelo;
 import aerolinea.datosAsiento.CodigoAsiento;
+import aerolinea.datosAsiento.DatosAsientoGeneral;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.datosAsiento.EstadoAsiento;
 import aerolinea.datosAsiento.EstadoAsientoVuelo;
@@ -10,9 +11,6 @@ import aerolinea.datosAsiento.PrecioAsiento;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
-import aerolinea.vuelo.informacionVuelo.InformacionFechaVuelo;
-import aerolinea.vuelo.informacionVuelo.InformacionHorariosVuelo;
-import aerolinea.vuelo.informacionVuelo.InformacionRutaVuelo;
 import aerolinea.vuelo.informacionVuelo.InformacionVuelo;
 import fecha.Fecha;
 import fecha.FechaFlexible;
@@ -30,7 +28,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class VueloTest {
-    LinkedList<DatosAsientoLanchita> asientos;
+    LinkedList<DatosAsientoGeneral> asientos;
     DatosAsientoLanchita asiento;
     DatosAsientoLanchita asiento1;
     DatosAsientoLanchita asiento2;
@@ -39,7 +37,7 @@ public class VueloTest {
     CiudadPartida orig;
     CiudadDestino dest;
     Fecha fechaSalida;
-    Fecha fechaLlegada;
+    Hora horaSalida;
     Vuelo vuelo;
     public VueloTest() {
     }
@@ -60,10 +58,7 @@ public class VueloTest {
             ClaseAsientoVuelo clase2 = new ClaseAsientoVuelo(ClasesAsientoVuelo.PRIMERA_CLASE);
             UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             UbicacionAsiento ubicacion2 = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
-            InformacionVuelo infoVuelo;
-            InformacionFechaVuelo infoFecha;
-            InformacionHorariosVuelo infoHorario;
-            InformacionRutaVuelo infoRuta;
+            horaSalida = new Hora("20:15");
             
             
             asiento = new DatosAsientoLanchita(codigo, precio1, clase, ubicacion);
@@ -81,19 +76,15 @@ public class VueloTest {
             dest = new CiudadDestino("LA");
             orig = new CiudadPartida("BA");
             
-            fechaSalida = new FechaFlexible("12/05/2018");
-            fechaLlegada = new FechaFlexible("13/05/2018");
-            infoFecha = new InformacionFechaVuelo(fechaSalida, fechaLlegada);
-            infoRuta = new InformacionRutaVuelo(orig, dest);
-            infoHorario = new InformacionHorariosVuelo(new Hora("15:30"), new Hora("12:30"));
-            infoVuelo = new InformacionVuelo(infoFecha, infoHorario, infoRuta);
+            fechaSalida = new FechaFlexible("2018/11/01");
             
-            vuelo = new Vuelo(infoVuelo);
+            
+            vuelo = new Vuelo(orig, dest, horaSalida, fechaSalida);
           
         } catch (PrecioNegativoException ex) {
             Assert.assertEquals(true, false);
         } catch (FormatoFechaIncorrectoException | FechaNoValidaException | FormatoHoraIncorrectoException | HoraInvalidaException ex) {
-            Logger.getLogger(VueloTest.class.getName()).log(Level.SEVERE, null, ex);
+            Assert.assertEquals(true, false);
         }
     }
     
@@ -109,10 +100,10 @@ public class VueloTest {
     @Test
     public void seObtieneLaListaDeAsientosDelVuelo(){
         LinkedList<AsientoVueloLanchita> resultado = vuelo.getDatosAsientoVuelo();
-        resultado.forEach(asiento ->{
-            Assert.assertEquals(asiento.getDestino(), "LA");
-            Assert.assertEquals(asiento.getOrigen(), "BA");
-            assertTrue(asientos.contains(asiento.getDatosAsiento()));
+        resultado.forEach(as ->{
+            Assert.assertEquals(as.getDestino().getCiudad(), "LA");
+            Assert.assertEquals(as.getOrigen().getCiudad(), "BA");
+            assertTrue(asientos.contains(as.getDatosAsiento()));
             
         });
         //assertThat()

@@ -12,8 +12,8 @@ public class DatosAsientoOceanic extends DatosAsientoGeneral{
     private Integer numeroDeAsiento;
     private String codigoDeVuelo;
     
-    public DatosAsientoOceanic (PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsientoVuelo ubicacionAsiento, EstadoAsientoVuelo estado, String horaDeSalida,FechaFormatoLatinoamericano fechaDeSalida, Integer numeroDeAsiento, String codigoDeVuelo ){
-        super(precio, clase,ubicacionAsiento,estado);
+    public DatosAsientoOceanic (PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento, String horaDeSalida,FechaFormatoLatinoamericano fechaDeSalida, Integer numeroDeAsiento, String codigoDeVuelo ){
+        super(precio, clase,ubicacionAsiento);
         this.horaDeSalida = horaDeSalida;
         this.fechaDeSalida = fechaDeSalida;  
         this.numeroDeAsiento = numeroDeAsiento;

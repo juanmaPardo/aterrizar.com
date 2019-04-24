@@ -23,6 +23,9 @@ public class EstadoAsiento implements FiltroBusqueda{
     
     @Override
     public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
-        return asiento.getDatosAsiento().getEstado().getEstadoAsiento() == estadoAsiento;
+        //Es decir, si solo busca disponibles devolvemos true si el estado de nuestro asiento es disponible
+        //Si buscamos incluir los reservados tambien devolvemos true ya que queremos mostrar todos
+        EstadoAsientoVuelo estadoPermite = asiento.getDatosAsiento().getEstado().getEstadoAsiento();
+        return (estadoPermite == EstadoAsientoVuelo.DISPONIBLE) ? estadoPermite == estadoAsiento : true  ;
     }
 }

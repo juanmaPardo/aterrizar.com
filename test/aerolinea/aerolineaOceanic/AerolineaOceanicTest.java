@@ -22,6 +22,7 @@ import aerolinea.vuelo.CiudadPartida;
 import aerolinea.vuelo.Vuelo;
 import fecha.Fecha;
 import fecha.FechaFlexible;
+import fecha.FechaFormatoLatinoamericano;
 import fecha.excepcionesFecha.FechaNoValidaException;
 import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
 import horarios.Hora;
@@ -97,8 +98,10 @@ public class AerolineaOceanicTest {
             CodigoAsiento codigoVueloDos1 = new CodigoAsiento("LV2O","15");
             CodigoAsiento codigoVueloDos2 = new CodigoAsiento("LV2O","16");
             CodigoAsiento codigoVueloDos3 = new CodigoAsiento("LV2O","17");
-            asiento5 = new DatosAsientoOceanic(codigoVueloDos2, clase2, ubicacion, horaSalida2, fechaSalida2.representacionEnLatinoamericano(), codigoVueloDos2.getNumeroAsiento(),codigoVueloDos2.getNumeroVuelo());
-            asiento6 = new DatosAsientoOceanic(codigoVueloDos1, clase1, ubicacion, horaSalida2, fechaSalida2.representacionEnLatinoamericano(), codigoVueloDos1.getNumeroAsiento(),codigoVueloDos1.getNumeroVuelo());
+            FechaFormatoLatinoamericano fec = new FechaFormatoLatinoamericano("15/12/2017");
+            asiento5 = new DatosAsientoOceanic(precio3, clase, ubicacion2, horaSalida2, fec, 12, "LA");
+            asiento6 = new DatosAsientoOceanic(precio3, clase, ubicacion2, horaSalida2, fec, 13, "lA");
+            
             
             vueloDos = new Vuelo(paris, montevideo, horaSalida2, fechaSalida2);
             vueloDos.agregarAsiento(asiento5);

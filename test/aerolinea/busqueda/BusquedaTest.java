@@ -15,9 +15,11 @@ import aerolinea.datosAsiento.PrecioMinimoAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import aerolinea.vuelo.Vuelo;
+import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import fecha.Fecha;
 import fecha.FechaFlexible;
 import fecha.FechaFormatoLatinoamericano;
@@ -26,10 +28,16 @@ import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
 import horarios.Hora;
 import horarios.excepcionesHora.FormatoHoraIncorrectoException;
 import horarios.excepcionesHora.HoraInvalidaException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import junit.framework.Assert;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -96,9 +104,9 @@ public class BusquedaTest {
             CodigoAsiento codigoVueloDos1 = new CodigoAsiento("LV2O","15");
             CodigoAsiento codigoVueloDos2 = new CodigoAsiento("LV2O","16");
             CodigoAsiento codigoVueloDos3 = new CodigoAsiento("LV2O","17");
-            asiento5 = new DatosAsientoLanchita(codigoVueloDos1, precio3, clase, ubicacion2);
-            asiento6 = new DatosAsientoLanchita(codigoVueloDos1, precio1, clase1, ubicacion);
-            asiento7 = new DatosAsientoLanchita(codigoVueloDos1, precio2, clase2, ubicacion);
+            asiento5 = new DatosAsientoLanchita(codigoVueloDos1, precio3, clase1, ubicacion2);
+            asiento6 = new DatosAsientoLanchita(codigoVueloDos1, precio1, clase2, ubicacion);
+            asiento7 = new DatosAsientoLanchita(codigoVueloDos1, precio2, clase, ubicacion);
             
             vueloDos = new Vuelo(paris, montevideo, horaSalida2, fechaSalida2);
             vueloDos.agregarAsiento(asiento5);
@@ -117,6 +125,7 @@ public class BusquedaTest {
             
             
             busquedaUno = new Busqueda(paris,montevideo,fechaSalida2,clase1);
+            busquedaDos = new Busqueda(paris,montevideo,fechaSalida2,clase1,clase2);
             /*busquedaDos = new Busqueda(new CiudadPartida("ROM"), new CiudadDestino("MON"),new FechaFlexible("2017/05/12"));
             busquedaTres = new Busqueda(new CiudadPartida("ROM"), new CiudadDestino("MON"),new FechaFlexible("2017/05/12"));*/
         } catch (FormatoFechaIncorrectoException | FechaNoValidaException | FormatoHoraIncorrectoException | HoraInvalidaException | PrecioNegativoException | ParametrosInsuficienteException ex) {
@@ -164,10 +173,20 @@ public class BusquedaTest {
             Busqueda busqueda = new Busqueda(busquedaHora,busquedaCiudadDestino
                     ,busquedaCiudadPartida,precioMaximo,precioMinimo,busquedaClase);
     }
-    
+    @Test
     public void filtraAsientosDevuelveUnoSolo(){
-        Assert.assertEquals(asiento6,busquedaUno.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo()));
+        List<AsientoGeneral> resultado = busquedaUno.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+        List<DatosAsientoGeneral> asientos = resultado.stream()
+                .map(asiento -> asiento.getDatosAsiento()).collect(Collectors.toList());
+        MatcherAssert.assertThat(asientos,Matchers.hasItem(asiento5));
         
     }
-    
+    @Test
+    public void filtraAsientosDevuelveDosAsientos(){
+        List<AsientoGeneral> resultado = busquedaDos.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+        List<DatosAsientoGeneral> asientos = resultado.stream()
+                .map(asiento -> asiento.getDatosAsiento()).collect(Collectors.toList());
+        MatcherAssert.assertThat(asientos,Matchers.hasItems(asiento5,asiento6));
+        
+    }
 }

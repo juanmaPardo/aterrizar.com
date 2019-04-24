@@ -90,6 +90,6 @@ public class Fecha implements DatosFecha, FiltroBusqueda{
 
     @Override
     public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
-        return asiento.getFechaSalida().representacionEnIso() == this.representacionEnIso();
+        return asiento.getFechaSalida().representacionEnIso().equals(representacionEnIso());
     }
 }

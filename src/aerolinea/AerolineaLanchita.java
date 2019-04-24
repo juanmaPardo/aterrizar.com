@@ -10,6 +10,7 @@ import horarios.Hora;
 import java.util.LinkedList;
 import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.DatosAsientoGeneral;
+import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import java.util.List;
 
@@ -24,14 +25,14 @@ public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
     }
     
     @Override
-    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
-        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
-        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+    public List<AsientoGeneral> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoGeneral> asientosDisponibles = obtenerAsientosVuelos();
+        List<AsientoGeneral> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
         return asientosCumplenSolicitud;
     }
     
-    private LinkedList<AsientoGeneralVuelo> obtenerAsientosVuelos(){
-        LinkedList<AsientoGeneralVuelo> asientosVuelos = new LinkedList<>();
+    private LinkedList<AsientoGeneral> obtenerAsientosVuelos(){
+        LinkedList<AsientoGeneral> asientosVuelos = new LinkedList<>();
         vuelosDisponibles.forEach(vuelo ->{
             asientosVuelos.addAll(vuelo.getDatosAsientoVuelo());
         });

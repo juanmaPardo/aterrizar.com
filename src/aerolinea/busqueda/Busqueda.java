@@ -4,6 +4,7 @@ import aerolinea.busqueda.ExcepcionesBusqueda.ParametrosInsuficienteException;
 import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.datosAsiento.ClaseAsientoVuelo;
+import aerolinea.datosAsiento.ClasesAsientoVuelo;
 import aerolinea.datosAsiento.EstadoAsiento;
 import aerolinea.datosAsiento.PrecioAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
@@ -79,13 +80,14 @@ public class Busqueda {
                 .filter(asientoVuelo -> cumpleTodosRequisitos(asientoVuelo)).collect(Collectors.toList());
         
         List<AsientoGeneral> asientosCumplenTodosFiltros = cumplenFiltroCaracterUnico.stream()
-                .filter(asientoVuelo -> claseAsientoAceptable(asientoVuelo,filtroClaseAsiento)).collect(Collectors.toList());
+                .filter(asientoVuelo -> claseAsientoAceptable(asientoVuelo)).collect(Collectors.toList());
         
         return asientosCumplenTodosFiltros;
     }
     
-    private boolean claseAsientoAceptable(AsientoGeneral asiento,LinkedList<ClaseAsientoVuelo> asientosAceptables){
-        return asientosAceptables.contains(asiento.getDatosAsiento().getUbicacionAsiento());
+    private boolean claseAsientoAceptable(AsientoGeneral asiento){
+        List<ClasesAsientoVuelo> clasesAsiento =  filtroClaseAsiento.stream().map(clase -> clase.getClaseAsiento()).collect(Collectors.toList());
+        return clasesAsiento.contains(asiento.getDatosAsiento().getClaseAsiento().getClaseAsiento());
     }
     
     private boolean cumpleTodosRequisitos(AsientoGeneral asientoVuelo){

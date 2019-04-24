@@ -3,6 +3,7 @@ package aerolinea.datosAsiento;
 import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
 import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 

@@ -15,6 +15,7 @@ import aerolinea.datosAsiento.PrecioMinimoAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
+import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
 import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.CiudadDestino;
@@ -29,6 +30,8 @@ import horarios.Hora;
 import horarios.excepcionesHora.FormatoHoraIncorrectoException;
 import horarios.excepcionesHora.HoraInvalidaException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -129,28 +132,44 @@ public class AerolineaOceanicTest {
 
     @Test
     public void seIngresaUnCodigoDeCiudadDeDosCaracteresYSeModifica(){
-        AerolineaOceanic aerolineaO = new AerolineaOceanic();
-        assertEquals("El codigo de ciudad no fue modificado","LR_" ,aerolineaO.modificarCodigoCiudad("LR"));
+        try {
+            AerolineaOceanic aerolineaO = new AerolineaOceanic();
+            assertEquals("El codigo de ciudad no fue modificado","LR_" ,aerolineaO.modificarCodigoCiudad("LR"));
+        } catch (PorcentajeIncorrectoException ex) {
+            Assert.assertEquals(true, false);
+        }
     }
     
     @Test
     public void seIngresaElCodigoDeCiudadLAYSeModifica(){
-        AerolineaOceanic aerolineaO = new AerolineaOceanic();
-        assertEquals("El codigo de ciudad no fue modificado","SLA" ,aerolineaO.modificarCodigoCiudad("LA"));
+        try {
+            AerolineaOceanic aerolineaO = new AerolineaOceanic();
+            assertEquals("El codigo de ciudad no fue modificado","SLA" ,aerolineaO.modificarCodigoCiudad("LA"));
+        } catch (PorcentajeIncorrectoException ex) {
+            Assert.assertEquals(true, false);
+        }
     }
 
     @Test
     public void seIngresaUnCodigoDeCiudadDeTresCaracteresYNoSeModifica(){
-        AerolineaOceanic aerolineaO = new AerolineaOceanic();
-        assertEquals("El codigo de ciudad no fue modificado","BUE" ,aerolineaO.modificarCodigoCiudad("BUE"));
+        try {
+            AerolineaOceanic aerolineaO = new AerolineaOceanic();
+            assertEquals("El codigo de ciudad no fue modificado","BUE" ,aerolineaO.modificarCodigoCiudad("BUE"));
+        } catch (PorcentajeIncorrectoException ex) {
+            Assert.assertEquals(true, false);
+        }
     }
     
     @Test
     public void seAgregaUnVueloYExisteUnAsientoQueCumplaConLasCaracteristicas(){
-        AerolineaOceanic aerolineaO = new AerolineaOceanic();
-        aerolineaO.agregarVuelo(vueloDos);
-        busqueda2.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
-        assertEquals(asiento5,busqueda2.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo()));
+        try {
+            AerolineaOceanic aerolineaO = new AerolineaOceanic();
+            aerolineaO.agregarVuelo(vueloDos);
+            busqueda2.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+            assertEquals(asiento5,busqueda2.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo()));
+        } catch (PorcentajeIncorrectoException ex) {
+            Assert.assertEquals(true, false);
+        }
         
     }
     

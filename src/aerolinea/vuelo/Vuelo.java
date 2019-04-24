@@ -33,8 +33,8 @@ public class Vuelo {
         this.fechaSalida = fechaSalida;
     }
     
-    public LinkedList<AsientoGeneral> getDatosAsientoVuelo(){
-        LinkedList<AsientoGeneral> datoAsientoVuelo = new LinkedList<>();
+    public LinkedList<AsientoGeneralVuelo> getDatosAsientoVuelo(){
+        LinkedList<AsientoGeneralVuelo> datoAsientoVuelo = new LinkedList<>();
         asientosVuelo.forEach(asiento ->{
             datoAsientoVuelo.add(new AsientoGeneralVuelo(asiento, destino, origen, fechaSalida, horaSalida));
         });

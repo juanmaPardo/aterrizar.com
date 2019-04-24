@@ -75,11 +75,11 @@ public class Busqueda {
         return parametros.stream().anyMatch(elem -> elem instanceof CiudadDestino);
     }
     
-    public List<AsientoGeneral> asientosCumplenRequisitoBusqueda(LinkedList<AsientoGeneral> disponibles){
-        List<AsientoGeneral> cumplenFiltroCaracterUnico = disponibles.stream()
+    public List<AsientoGeneralVuelo> asientosCumplenRequisitoBusqueda(LinkedList<AsientoGeneralVuelo> disponibles){
+        List<AsientoGeneralVuelo> cumplenFiltroCaracterUnico = disponibles.stream()
                 .filter(asientoVuelo -> cumpleTodosRequisitos(asientoVuelo)).collect(Collectors.toList());
         
-        List<AsientoGeneral> asientosCumplenTodosFiltros = cumplenFiltroCaracterUnico.stream()
+        List<AsientoGeneralVuelo> asientosCumplenTodosFiltros = cumplenFiltroCaracterUnico.stream()
                 .filter(asientoVuelo -> claseAsientoAceptable(asientoVuelo)).collect(Collectors.toList());
         
         return asientosCumplenTodosFiltros;
@@ -90,7 +90,7 @@ public class Busqueda {
         return clasesAsiento.contains(asiento.getDatosAsiento().getClaseAsiento().getClaseAsiento());
     }
     
-    private boolean cumpleTodosRequisitos(AsientoGeneral asientoVuelo){
+    private boolean cumpleTodosRequisitos(AsientoGeneralVuelo asientoVuelo){
         return filtroBusqueda.stream().
                 allMatch(filtroBusq -> filtroBusq.asientoVueloCumpleParametro(asientoVuelo));
     }

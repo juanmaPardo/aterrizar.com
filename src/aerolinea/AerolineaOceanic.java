@@ -3,6 +3,7 @@ package aerolinea;
 
 import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
+import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
 import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.CiudadDestino;
@@ -14,11 +15,12 @@ import fecha.excepcionesFecha.FechaNoValidaException;
 import fecha.excepcionesFecha.FormatoFechaIncorrectoException;
 import java.util.LinkedList;
 import java.util.List;
+import usuario.Usuario;
 
 public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
-    
-    public AerolineaOceanic(){
-        super();
+    final static double RECARGO_AEROLINEA = 0.10;
+    public AerolineaOceanic() throws PorcentajeIncorrectoException{
+        super(RECARGO_AEROLINEA);
     }
     
     public String modificarCodigoCiudad (String codigoCiudad){
@@ -37,28 +39,20 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
         return nuevoCodigoCiudad;
     }
     
-    private LinkedList<AsientoGeneral> obtenerAsientosVuelos(){
-        LinkedList<AsientoGeneral> asientosVuelos = new LinkedList<>();
-        vuelosDisponibles.forEach(vuelo ->{
-            asientosVuelos.addAll(vuelo.getDatosAsientoVuelo());
-        });
-        return asientosVuelos;
-    }
-    
     @Override
-    public List<AsientoGeneral> asientosDisponibles(Busqueda parametrosBusqueda) {
-        LinkedList<AsientoGeneral> asientosDisponibles = obtenerAsientosVuelos();
-        List<AsientoGeneral> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
+        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
         return asientosCumplenSolicitud;
     }
     
     
-    public List<AsientoGeneral> asientosDisponiblesParaOrigen(String codigoOrigenOceanic, String fechaSalida) throws FormatoFechaIncorrectoException, FechaNoValidaException{
+    public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigen(String codigoOrigenOceanic, String fechaSalida) throws FormatoFechaIncorrectoException, FechaNoValidaException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         return asientosDisponibles(new Busqueda(new CiudadPartida(codigoOrigenModificado), new FechaFlexible(fechaSalida)));
     }
     
-    public List<AsientoGeneral> asientosDisponiblesParaOrigenYDestino(String codigoOrigenOceanic,String fechaSalida,String codigoDestinoOceanic) throws FormatoFechaIncorrectoException, FechaNoValidaException{
+    public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigenYDestino(String codigoOrigenOceanic,String fechaSalida,String codigoDestinoOceanic) throws FormatoFechaIncorrectoException, FechaNoValidaException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         String codigoDestinoModificado = modificarCodigoCiudad(codigoDestinoOceanic);
         return asientosDisponibles(new Busqueda(new CiudadDestino(codigoDestinoModificado),new CiudadPartida(codigoOrigenModificado),new FechaFlexible(fechaSalida)));
@@ -71,7 +65,7 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
     public Boolean reservar(String dni, String codigoVuelo, Integer numeroDeAsiento);*/
 
     @Override
-    public void comprar(String codigoAsiento) {
+    public void comprar(String codigoAsiento,Usuario comprador) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

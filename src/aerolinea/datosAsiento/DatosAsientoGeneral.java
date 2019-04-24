@@ -14,7 +14,7 @@ public class DatosAsientoGeneral {
         this.precio = precio;
         this.clase = clase;
         this.ubicacionAsiento = ubicacionAsiento;
-        this.estado = new EstadoAsiento(EstadoAsientoVuelo.DISPONIBLE);
+        this.estado = new EstadoAsiento();
     }
 
     

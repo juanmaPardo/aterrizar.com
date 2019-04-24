@@ -10,10 +10,11 @@ import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.Vuelo;
 import java.util.List;
+import usuario.Usuario;
 
 public interface Aerolinea {
     
-    public List<AsientoGeneral> asientosDisponibles(Busqueda parametrosBusqueda);
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda);
      
-    public void comprar(String codigoAsiento);
+    public void comprar(String codigoAsiento,Usuario comprado);
 }

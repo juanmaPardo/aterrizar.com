@@ -3,5 +3,6 @@ package aerolinea.datosAsiento;
 
 public enum EstadoAsientoVuelo {
     RESERVADO,
-    DISPONIBLE;
+    DISPONIBLE,
+    VENDIDO;
 }

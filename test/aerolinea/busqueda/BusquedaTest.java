@@ -16,6 +16,7 @@ import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.vuelo.AsientoGeneral;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import aerolinea.vuelo.Vuelo;
@@ -175,7 +176,7 @@ public class BusquedaTest {
     }
     @Test
     public void filtraAsientosDevuelveUnoSolo(){
-        List<AsientoGeneral> resultado = busquedaUno.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+        List<AsientoGeneralVuelo> resultado = busquedaUno.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
         List<DatosAsientoGeneral> asientos = resultado.stream()
                 .map(asiento -> asiento.getDatosAsiento()).collect(Collectors.toList());
         MatcherAssert.assertThat(asientos,Matchers.hasItem(asiento5));
@@ -183,7 +184,7 @@ public class BusquedaTest {
     }
     @Test
     public void filtraAsientosDevuelveDosAsientos(){
-        List<AsientoGeneral> resultado = busquedaDos.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+        List<AsientoGeneralVuelo> resultado = busquedaDos.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
         List<DatosAsientoGeneral> asientos = resultado.stream()
                 .map(asiento -> asiento.getDatosAsiento()).collect(Collectors.toList());
         MatcherAssert.assertThat(asientos,Matchers.hasItems(asiento5,asiento6));

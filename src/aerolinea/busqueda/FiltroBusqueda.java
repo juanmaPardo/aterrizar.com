@@ -6,5 +6,5 @@ import aerolinea.vuelo.AsientoVueloLanchita;
 
 public interface FiltroBusqueda {
     
-    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento);
+    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento);
 }

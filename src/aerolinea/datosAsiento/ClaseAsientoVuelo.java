@@ -17,7 +17,7 @@ public class ClaseAsientoVuelo implements FiltroBusqueda{
     }
     
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
         return asiento.getDatosAsiento().getClaseAsiento().getClaseAsiento() == claseAsiento;
     }
 }

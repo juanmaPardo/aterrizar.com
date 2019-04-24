@@ -13,7 +13,7 @@ public class PrecioMaximoAsiento extends PrecioAsiento {
     }
     
     @Override
-    public boolean asientoVueloCumpleParametro(AsientoGeneral asiento) {
+    public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
         return asiento.getDatosAsiento().getPrecio().getPrecioAsiento() <= precioAsiento;
     }
 }

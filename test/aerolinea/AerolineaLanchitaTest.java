@@ -10,6 +10,7 @@ import aerolinea.datosAsiento.PrecioAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
+import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import aerolinea.vuelo.Vuelo;
@@ -161,6 +162,8 @@ public class AerolineaLanchitaTest {
             Assert.assertEquals(true, false);
         } catch (FormatoFechaIncorrectoException | FechaNoValidaException | FormatoHoraIncorrectoException | HoraInvalidaException ex) {
             Assert.assertEquals(true, false);
+        } catch (PorcentajeIncorrectoException ex) {
+            Logger.getLogger(AerolineaLanchitaTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

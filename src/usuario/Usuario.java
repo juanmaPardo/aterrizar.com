@@ -39,6 +39,7 @@ public class Usuario implements Comparable<Usuario>{
         return dni;
     }
     
+    
     public void marcarComoComprado(AsientoGeneralVuelo asiento){
         asientosComprados.add(asiento);
     }

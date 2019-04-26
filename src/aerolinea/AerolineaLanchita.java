@@ -29,8 +29,8 @@ public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
         super(RECARGO_AEROLINEA);
     }
 
-    public AerolineaLanchita(LinkedList<Vuelo> vuelosDisponibles,double recargoAerolinea) throws PorcentajeIncorrectoException {
-        super(vuelosDisponibles,recargoAerolinea);
+    public AerolineaLanchita(LinkedList<Vuelo> vuelosDisponibles,double recargoAerolinea, int diasParaQueExpireReserva) throws PorcentajeIncorrectoException {
+        super(vuelosDisponibles,recargoAerolinea, diasParaQueExpireReserva);
     }
     
     @Override
@@ -40,13 +40,6 @@ public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
         return asientosCumplenSolicitud;
     }
     
-    
-    public AsientoGeneralVuelo obtenerAsiento(String codigoAsiento) throws CodigoAsientoException{
-        LinkedList<AsientoGeneralVuelo> asientosVuelos = obtenerAsientosVuelos();
-        CodigoAsiento codigoBuscado = new CodigoAsiento(codigoAsiento);
-        return asientosVuelos.stream().filter(asiento -> codigoBuscado.asientoVueloCumpleParametro(asiento))
-                .collect(Collectors.toList()).get(0);
-    }
     
     //public void eliminarAsientoComprado()
     
@@ -66,6 +59,11 @@ public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
         } catch (CodigoAsientoException ex) {
             throw new CodigoAsientoNoEncontradoException("El codigo de asiento ingresado no pudo ser reconocido");
         }
+    }
+
+    @Override
+    public void reservar(String codigo, String dni) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

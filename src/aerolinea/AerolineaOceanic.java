@@ -1,4 +1,3 @@
-
 package aerolinea;
 
 import aerolinea.busqueda.Busqueda;
@@ -66,6 +65,11 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
 
     @Override
     public void comprar(String codigoAsiento,Usuario comprador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void reservar(String codigo, String dni) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

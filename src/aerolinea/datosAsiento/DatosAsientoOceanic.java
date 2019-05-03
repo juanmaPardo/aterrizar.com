@@ -1,6 +1,7 @@
 
 package aerolinea.datosAsiento;
 
+import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
 import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
@@ -13,8 +14,8 @@ public class DatosAsientoOceanic extends DatosAsientoGeneral{
     private Integer numeroDeAsiento;
     private String codigoDeVuelo;
     
-    public DatosAsientoOceanic (PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento, Hora horaDeSalida,FechaFormatoLatinoamericano fechaDeSalida, Integer numeroDeAsiento, String codigoDeVuelo ){
-        super(precio, clase,ubicacionAsiento);
+    public DatosAsientoOceanic (PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento, Hora horaDeSalida,FechaFormatoLatinoamericano fechaDeSalida, Integer numeroDeAsiento, String codigoDeVuelo ) throws CodigoAsientoException{
+        super(precio, clase,ubicacionAsiento,new CodigoAsiento(codigoDeVuelo + "-" + numeroDeAsiento));
         this.horaDeSalida = horaDeSalida;
         this.fechaDeSalida = fechaDeSalida;  
         this.numeroDeAsiento = numeroDeAsiento;
@@ -35,11 +36,7 @@ public class DatosAsientoOceanic extends DatosAsientoGeneral{
     
     public String getCodigoDeVuelo(){
         return codigoDeVuelo;  
-}
-
-    
-    
-    
+    }   
     
     
     

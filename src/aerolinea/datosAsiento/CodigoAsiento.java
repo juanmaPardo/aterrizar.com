@@ -27,7 +27,7 @@ public class CodigoAsiento implements FiltroBusqueda {
         this.numeroAsiento = numeroAsiento;
     }
 
-    public String getCodigoAsiento() {
+    public String getCodigo() {
         return codigoAsiento;
     }
 
@@ -42,7 +42,7 @@ public class CodigoAsiento implements FiltroBusqueda {
 
     @Override
     public boolean asientoVueloCumpleParametro(AsientoGeneralVuelo asiento) {
-        DatosAsientoLanchita datosAsientoLanchita =(DatosAsientoLanchita)asiento.getDatosAsiento();
-        return datosAsientoLanchita.getCodigoAsiento() == codigoAsiento;
+        DatosAsientoGeneral datosAsientoGeneral =(DatosAsientoLanchita)asiento.getDatosAsiento();
+        return datosAsientoGeneral.getCodigoAsiento().getCodigo() == codigoAsiento;
     }
 }

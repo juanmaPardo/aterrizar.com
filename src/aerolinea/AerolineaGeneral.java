@@ -12,7 +12,10 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javax.naming.InsufficientResourcesException;
 import usuario.Usuario;
-import aerolinea.AsientoReservadoException;
+import aerolinea.excepcionesAerolinea.AsientoReservadoException;
+import aerolinea.excepcionesAerolinea.UsuarioNoEncontradoException;
+import java.util.List;
+import java.util.Objects;
 
 public class AerolineaGeneral {
     protected LinkedList<Vuelo> vuelosDisponibles;
@@ -55,18 +58,27 @@ public class AerolineaGeneral {
                 .collect(Collectors.toList()).get(0);
     }
     
-    public void reservar(String codigoAsiento, String dni) throws AsientoReservadoException{
-          try {
-            AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
-            if (!asientoBuscado.getDatosAsiento().getEstado().estaReservado()) {
-                reservarAsiento(asientoBuscado);
-            } else {
-                throw new AsientoReservadoException("El asiento asociado al codigo ingresado ya fue reservado");
-            }
-
-        } catch (CodigoAsientoException ex) {
-            throw new CodigoAsientoNoEncontradoException("El codigo de asiento ingresado no pudo ser reconocido");
+    public void reservar(String codigoAsiento, Integer dni) throws AsientoReservadoException, CodigoAsientoException, UsuarioNoEncontradoException{
+        AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
+        if (asientoBuscado.getDatosAsiento().getEstado().estaReservado()) {
+            throw new AsientoReservadoException("El asiento asociado al codigo ingresado ya fue reservado");
         }
+        reservarAsiento(asientoBuscado);
+        Usuario usuarioAsociado = obtenerUsurioAsociado(dni);
+        //Creas clase AsientoReservado asientoReservado = new AsientoReservado(usuarioAsociado,diasParaQueExpire)
+        //asientosReservados.add(asientoReservado);
+        //La de abajo cambia a -> usuarioAsociado.agregarAsientoReservado(asientoReservado);
+        usuarioAsociado.agregarAsientoReservado(asientoBuscado);
+    }
+    
+    private Usuario obtenerUsurioAsociado(Integer dni) throws UsuarioNoEncontradoException{
+        if(usuariosSuscriptos.containsKey(dni)){
+            return usuariosSuscriptos.get(dni);
+        }
+        else{
+            throw new UsuarioNoEncontradoException("No existe un usuario con ese dni inscripto en aterrizar.com");
+        }
+ 
     }
     
     private void reservarAsiento(AsientoGeneralVuelo asientoBuscado) {

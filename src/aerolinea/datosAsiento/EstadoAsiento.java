@@ -15,7 +15,7 @@ public class EstadoAsiento implements FiltroBusqueda{
     
     public void reservarAsiento(){
         if(estadoAsiento == EstadoAsientoVuelo.VENDIDO){
-            throw new AsientoVendidoException("No se puede reservar un aciento que fue vendido");
+            throw new AsientoVendidoException("No se puede reservar un asiento que fue vendido");
         }
         estadoAsiento = EstadoAsientoVuelo.RESERVADO;
     }

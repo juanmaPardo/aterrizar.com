@@ -9,15 +9,23 @@ public class DatosAsientoGeneral {
     protected ClaseAsientoVuelo clase;
     protected UbicacionAsiento ubicacionAsiento;
     protected EstadoAsiento estado;
+    protected CodigoAsiento codigo;
 
-    public DatosAsientoGeneral(PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento) {
+    public DatosAsientoGeneral(PrecioAsiento precio, ClaseAsientoVuelo clase, UbicacionAsiento ubicacionAsiento,CodigoAsiento codigo) {
         this.precio = precio;
         this.clase = clase;
         this.ubicacionAsiento = ubicacionAsiento;
         this.estado = new EstadoAsiento();
+        this.codigo = codigo;
     }
 
-    
+    public ClaseAsientoVuelo getClase() {
+        return clase;
+    }
+
+    public CodigoAsiento getCodigoAsiento() {
+        return codigo;
+    }
 
 
     public PrecioAsiento getPrecio() {

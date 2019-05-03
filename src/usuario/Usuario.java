@@ -7,6 +7,7 @@ import java.util.LinkedList;
 public class Usuario implements Comparable<Usuario>{
     private PerfilUsuario perfil;
     private LinkedList<AsientoGeneralVuelo> asientosComprados;
+    private LinkedList<AsientoGeneralVuelo> asientosReservados;
     private String nombre;
     private String apellido;
     private Integer dni;
@@ -21,6 +22,7 @@ public class Usuario implements Comparable<Usuario>{
         this.apellido = apellido;
         this.dni = dni;//Al dni lo asumimos como valido si no es negativo
         asientosComprados = new LinkedList<>();
+        asientosReservados = new LinkedList<>();
     }
 
     public PerfilUsuario getPerfil() {
@@ -39,6 +41,9 @@ public class Usuario implements Comparable<Usuario>{
         return dni;
     }
     
+    public void agregarAsientoReservado(AsientoGeneralVuelo asiento){
+        asientosReservados.add(asiento);
+    }
     
     public void marcarComoComprado(AsientoGeneralVuelo asiento){
         asientosComprados.add(asiento);

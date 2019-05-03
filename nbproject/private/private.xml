@@ -55,14 +55,8 @@
         </group>
         <group>
             <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/vuelo/AsientoGeneralVuelo.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/usuario/PerfilUsuario.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaOceanic.java</file>
             <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/usuario/Usuario.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoGeneral.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/datosAsiento/CodigoAsiento.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/datosAsiento/EstadoAsiento.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aterrizar/Aterrizar.java</file>
         </group>
     </open-files>
 </project-private>

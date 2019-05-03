@@ -2,6 +2,7 @@ package aerolinea.datosAsiento;
 
 import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.busqueda.FiltroBusqueda;
+import aerolinea.datosAsiento.excepcionesAsiento.AsientoNoReservadoException;
 import aerolinea.datosAsiento.excepcionesAsiento.AsientoVendidoException;
 import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
@@ -13,6 +14,14 @@ public class EstadoAsiento implements FiltroBusqueda{
         this.estadoAsiento = EstadoAsientoVuelo.DISPONIBLE;
     }
     
+    public void sobrereservarAsiento(){
+        if(!(estadoAsiento == EstadoAsientoVuelo.RESERVADO)){
+            throw new AsientoNoReservadoException("No se puede sobrereservar un asiento no reservado");
+        }
+        estadoAsiento = EstadoAsientoVuelo.SOBRERESERVADO;
+    }
+    
+    
     public void reservarAsiento(){
         if(estadoAsiento == EstadoAsientoVuelo.VENDIDO){
             throw new AsientoVendidoException("No se puede reservar un asiento que fue vendido");
@@ -22,6 +31,10 @@ public class EstadoAsiento implements FiltroBusqueda{
     
     public boolean estaReservado(){
         return estadoAsiento == EstadoAsientoVuelo.RESERVADO;
+    }
+    
+    public boolean estaSobrereservado(){
+        return estadoAsiento == EstadoAsientoVuelo.SOBRERESERVADO;
     }
     
     public void venderAsiento(){

@@ -1,14 +1,16 @@
 package aterrizar;
 
 import usuario.Usuario;
-import aerolinea.Aerolinea;
+import aerolinea.AerolineaGeneral;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 import java.util.LinkedList;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Aterrizar {
-    LinkedList<Aerolinea> aerolineas;
+    LinkedList<AerolineaGeneral> aerolineas;
     TreeSet<Usuario> usuarios;
+    LinkedList<AsientoGeneralVuelo> asientosSobreReservados;
+    
 
     public Aterrizar() {
         aerolineas = new LinkedList<>();
@@ -16,7 +18,13 @@ public class Aterrizar {
     }
     
     
-    public void agregarAerolinea(Aerolinea aerolinea){
+    public void realizarSobreReserva(AsientoGeneralVuelo asiento, Usuario usuario){
+        asiento.getDatosAsiento().getEstado().sobrereservarAsiento();
+        asientosSobreReservados.add(asiento);
+        usuario.agregarAsientoSobrereservado(asiento);
+    }
+    
+    public void agregarAerolinea(AerolineaGeneral aerolinea){
         aerolineas.add(aerolinea);
     }
     

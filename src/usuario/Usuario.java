@@ -12,6 +12,7 @@ public class Usuario implements Comparable<Usuario>{
     private PerfilUsuario perfil;
     private LinkedList<AsientoGeneralVuelo> asientosComprados;
     private LinkedList<AsientoGeneralVuelo> asientosReservados;
+    private LinkedList<AsientoGeneralVuelo> asientosSobreReservados;
     private String nombre;
     private String apellido;
     private Integer dni;
@@ -61,6 +62,10 @@ public class Usuario implements Comparable<Usuario>{
         aerolinea.reservar(codigoAsiento, dni);
     }
     
+     public void agregarAsientoSobrereservado(AsientoGeneralVuelo asiento){
+        asientosReservados.add(asiento);
+    }
+        
     public void comprarAsiento(String codigoAsiento, AerolineaGeneral aerolinea) throws CodigoAsientoException{
         aerolinea.comprar(codigoAsiento, this);
     }

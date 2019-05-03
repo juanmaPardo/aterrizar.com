@@ -83,9 +83,15 @@ public class AerolineaGeneral{
     }
     
     public void expiroReserva(AsientoGeneralVuelo asiento, Usuario usuario){
-        asiento.getDatosAsiento().getEstado().asientoDisponible();
-        asientosReservados.remove(asiento);
-        usuario.quitarASientoReservado(asiento);
+        if(!asiento.getDatosAsiento().getEstado().estaSobrereservado()) {
+            asiento.getDatosAsiento().getEstado().asientoDisponible();
+            asientosReservados.remove(asiento);
+            usuario.quitarASientoReservado(asiento);
+        }
+        else{
+            //tengo que reservarle al otro usuario el asiento
+        }
+        
     }
     
     private void reservarAsiento(AsientoGeneralVuelo asientoBuscado) {
@@ -129,7 +135,7 @@ public class AerolineaGeneral{
 
     public void comprar(String codigoAsiento,Usuario comprador) throws CodigoAsientoException{
         AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
-        if(asientoBuscado.getDatosAsiento().getEstado().asientoVendido() || asientoBuscado.getDatosAsiento().getEstado().estaReservado()){
+        if(asientoBuscado.getDatosAsiento().getEstado().asientoVendido()){
             throw new AsientoVendidoException("El asiento asociado al codigo ingresado ya fue vendido");  
         }
         marcarComoVendido(asientoBuscado);

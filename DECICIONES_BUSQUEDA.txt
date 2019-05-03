@@ -1,0 +1,58 @@
+Alumno: Pardo, Juan Manuel.
+Entrega 3 : A cargo de las busquedas (lo hago solo porque iñaki dejo la materia)
+
+Bueno, paso a explicar que hace bien la clase busqueda que esta fuertemente ligada a la entrega dos ya que no tenia sentido hacer la entrega
+dos con lo mencionado porque ibamos a tener que cambiarlo despues, entonces no seguimos un orden de entregas sino que analizamos todo el dominio
+de nuestro problema y decidimos empezar a trabar teniendo en cuenta los elementos a incluir/trabajar en futuras entregas.
+
+¿Que es la clase busqueda?
+Bueno, esto tendria que
+La clase busqueda es una clase que contiene una LinkedList de elementos que cumplan la interfaz de FiltroBusqueda y una LinkedList
+para las clases de aciento que son aceptables
+
+	¿Que es la interfaz FiltroBusqueda?
+	La interfaz filtro busqueda se creo con el objetivo de que cada elemento que actue como filtro en las preferencias de asientos
+	implemente a su manera si un asiento cumple o no cumple con ese filtro, es decir FiltroBusqueda tiene solo un metodo a ser implementado
+	llamado asientoCumpleParametros donde recibe un AsientoGeneralVuelo y devuelve si el asiento cumple con el parametro indicado.
+
+	¿Que elemento implementa la interfaz FiltroBusqueda?
+	Todo elemento que actue como filtro a la hora de filtrar los acientos debe implementar esta interfaz, ejemplo:
+	Fecha,ClaseAsiento,UbicacionAsiento,Hora,Precio,PrecioMinimo,PrecioMaximo,EstadoAsiento, etc.
+
+Entonces de esta manera se hace todo super facil, porque la clase busqueda puede recibir tantos parametros desees y en el momento que al sistema
+se le ocurre agregar un nuevo parametro como filtro para los asientos lo unico que se debe hacer es agregar el elemento, hacer que implemente
+la clase FiltroBusqueda y ya puede actuar como filtro sin hacer ningun tipo de cambio en el programa.
+
+El principal metodo de la clase busqueda es asientosCumplenRequisitosBusqueda que recibe una LinkedList de AsientoGeneralVuelo, basicamente
+lo que hace es recibir esa lista de asientos y devolver todos aquellos asientos que cumplan con los requisitos de busqueda que se encuentran
+instanciados en la clase. La manera de realizar eso es fijandose si primero cada asiento cumple con los filtros de caracter unico, tales
+como Fecha,PrecioMinimo,Hora,etc y luego nos fijamos si cumple con los de caracter no exclusivo, con los de caracter no exclusivo me refiero
+a por ejemplo ClaseAsiento donde se puede aceptar mas de una clase de asiento y el asiento con solo cumplir una de esas clases indicadas
+se lo toma como correcto.
+
+Destaco que en la creacional de busqueda propia a mi consigna se corrobora que se mande obligatoriamente la fecha/ciudadOrigen/ciudadDestino.
+En caso de que las mismas no se encuentren se lanza la excepcion ParametrosInsuficientesException.
+Un dato importante a destacar es que tuve que agregar una creacional mas a busqueda para poder compatibilizarlo con la consigna de Oceanic 
+de uno de mis compañeros de equipo, ya que el precisaba un filtro de busqueda solamente por ciudad partida y fecha, y de usar la creacional 
+de mi consiga le iba a tirar una exception por insuficiencia de parametros, entonces para eliminar esa inconsistencia se agrego una 
+creacional mas que acepta una ciudad de partida y una fecha como unicos parametros de busqueda.
+
+A su vez la clase busqueda aparte de la lista de asientos generales va a recibir una instancia de un elemento que implemente la interfaz
+OrdenamientoAsientos para que antes de devolver los asientos los ordene de acuerdo a este parametro.
+
+¿Que es la interfaz OrdenamientoAsientos?
+La interfaz ordenamiento lo que tiene es un solo metodo llamado ordenar que recibe una lista de AsientoGeneral y la ordena
+
+¿Quienes implementan esta interfaz?
+Para ello cree una clase para cada critero de ordenamiento en la cual cada uno a su manera implementa el metodo ordenar.De esta manera
+si queremos agregar un nuevo criterio de ordenamiento lo unico que debemos hacer es hacer que implemente la interfaz OrdenamientoAsientos
+con su respectivo metodo y ya puede actuar como criterio de ordenamiento sin hacer ningun tipo de cambio en el programa.
+
+
+¿Porque me decidi por este modelo?
+Basicamente porque era la manera mas comoda de trabajar y hacer el programa mas mantenible a cambios futuros, en cuanto a los parametros que recibia
+la aerolinea para filtrar, los mismos no eran fijos y cada vez se agregaban mas, entonces me parecio propio encapsularlos en una clase la cual
+encapsule toda la complejidad del filtro de asientos y que lo unico que tenga que hacer la aerolinea es traer todos los asientos de los vuelos
+de las diferentes aerolineas y decirle a la instancia de busqueda: busqueda.asientosCumplenRequisitosBusqueda mandandole dicha lista de asientos
+y automaticamente recibe todos los asientos que cumplen con esos requisitos. De esta manera la aerolinea esta completamente desacoplada de la
+Busqueda y de como la misma implementa sus metodos, lo unico que precisa es una instancia de la misma con los filtros deseados.

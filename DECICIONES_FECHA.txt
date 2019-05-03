@@ -1,0 +1,29 @@
+Para la fecha se pensaron diferentes alternativas pero terminamos definiendonos por el siguiente esquema:
+Creamos una general Fecha la cual no tiene como objetivo su instanciacion sino que actua como superclase de los diferentes formatos pedidos.
+Al momento en el que se instancia una de las fechas, se llama a esta superclase la cual recibe una fecha en formato string con un date_format 
+la cual se encarga de corroborar que tanto el formato de la fecha como su validacion en termino cualitativo sea correcta, en caso contrario
+lanza una exception, en caso que la fecha no cumpla el formato indicado se lanza FormatoFechaIncorrectoException, y en caso que la fecha
+sea cualitativamente incorrecta se lanza FechaNoValidaException. A su vez la superclase fecha implementa getters tanto para el dia/mes/año
+y tiene 3 metodos llamados representacionEnFormatoIso,representacionEnFormatoLatinoamericano,representacionEnFormatioNorteamericano que lo que 
+hacen es devolver un string con la representacion de la fecha en el formato adecuado al metodo que se llamo.
+
+En cuanto a los formatos que se debe soportar decidimos crear 4 clases diferentes que contemplen lo pedido,todas heredan de Fecha, ellas son:
+FechaFormatoLatinoamericano(donde se crea una fecha siempre y cuando el string cumpla con el date format dd/mm/aaaa y sea una fecha valida)
+FechaFormatoNorteamericano(donde se crea una fecha siempre y cuando el string cumpla con el date format mm/dd/aaaa y sea una fecha valida)
+FechaFormatoIso(donde se crea una fecha siempre y cuando el string cumpla con el date format aaaa/mm/dd y sea una fecha valida)
+FechaFlexible = En esta fecha no se indica ningun formato, simplemente se manda un string en el formato que uno quiera y se encarga de corroborar
+		si matchea con algun formato y es una fecha valida, el primero en cumplirlo es el formato que toma. En caso de no cumplir 
+		ningun formato o no ser una fecha valida se lanzan las exceptiones mencionadas.
+
+Por ultimo hay una interfaz DatosFecha que implementa la superclase Fecha, en donde hay metodos propios a las fechas como los getters, las tres
+tipos de representaciones mencionadas y donde se implemento los dos metodos solicitados de diasPasaron y fechaAnterior de manera estatica, decidimos
+hacerlo de esa manera ya que no es necesario ningun tipo de instanciacion para determinar los dias que pasaron, o cual es anterior de
+dos fechas recibidas por parametro, entonces nos parecio propio hacer a ambos metodos estaticos y colocarlos en esta interfaz.
+
+
+Basicamente nos decidimos por este modelo porque nos parecio que era en el que mas se desacoplaba el comportamiento de las clases,porque se podria
+haber creado una clase fecha en donde directamente le mandas el formato y se encarga de hacer los chekeos y instanciar, pero dependiendo del formato
+la substraccion de las porciones del string que tenes que substraer para instanciar el dia/mes/anio es diferente, y hubiese quedado muy desprolijo
+y habria codigo muy inesesario. De esta manera si queres instanciar una fecha en formato latinoamericano ya tenes una clase que lo cubre, lo
+mismo para el formato norteamericano y el formato iso, y si no estas seguro de que formato usar directamente usas FechaFlexible en donde siempre
+que la fecha sea valida va a encontrar algun formato que la cubra y se va a poder instanciar sin problema.

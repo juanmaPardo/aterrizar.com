@@ -6,6 +6,9 @@ import horarios.Hora;
 import java.util.LinkedList;
 import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.DatosAsientoGeneral;
+import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
+import aerolinea.excepcionesAerolinea.AsientoReservadoException;
+import aerolinea.excepcionesAerolinea.UsuarioNoEncontradoException;
 import aerolinea.vuelo.AsientoGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.Vuelo;
@@ -18,5 +21,5 @@ public interface Aerolinea {
      
     public void comprar(String codigoAsiento,Usuario comprado);
     
-    public void reservar(String codigo, String dni);
+    public void reservar(String codigo, Integer dni) throws AsientoReservadoException, CodigoAsientoException, UsuarioNoEncontradoException;
 }

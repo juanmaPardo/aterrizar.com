@@ -1,6 +1,7 @@
 package aerolinea;
 
 import aerolinea.busqueda.Busqueda;
+import aerolinea.busqueda.ExcepcionesBusqueda.ParametrosInsuficienteException;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
 import aerolinea.vuelo.AsientoGeneral;
@@ -16,7 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import usuario.Usuario;
 
-public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
+public class AerolineaOceanic extends AerolineaGeneral{
     final static double RECARGO_AEROLINEA = 0.10;
     public AerolineaOceanic() throws PorcentajeIncorrectoException{
         super(RECARGO_AEROLINEA);
@@ -38,20 +39,13 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
         return nuevoCodigoCiudad;
     }
     
-    @Override
-    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
-        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
-        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
-        return asientosCumplenSolicitud;
-    }
-    
-    
+     
     public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigen(String codigoOrigenOceanic, String fechaSalida) throws FormatoFechaIncorrectoException, FechaNoValidaException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         return asientosDisponibles(new Busqueda(new CiudadPartida(codigoOrigenModificado), new FechaFlexible(fechaSalida)));
     }
     
-    public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigenYDestino(String codigoOrigenOceanic,String fechaSalida,String codigoDestinoOceanic) throws FormatoFechaIncorrectoException, FechaNoValidaException{
+    public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigenYDestino(String codigoOrigenOceanic,String fechaSalida,String codigoDestinoOceanic) throws FormatoFechaIncorrectoException, FechaNoValidaException, ParametrosInsuficienteException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         String codigoDestinoModificado = modificarCodigoCiudad(codigoDestinoOceanic);
         return asientosDisponibles(new Busqueda(new CiudadDestino(codigoDestinoModificado),new CiudadPartida(codigoOrigenModificado),new FechaFlexible(fechaSalida)));
@@ -62,17 +56,6 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
     public Boolean comprarSiHayDisponibilidad(String dni, String codigoVuelo, Integer numeroDeAsiento);
     
     public Boolean reservar(String dni, String codigoVuelo, Integer numeroDeAsiento);*/
-
-    @Override
-    public void comprar(String codigoAsiento,Usuario comprador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void reservar(String codigo, String dni) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 
     
 }

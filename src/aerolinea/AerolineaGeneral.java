@@ -1,5 +1,6 @@
 package aerolinea;
 
+import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.CodigoAsiento;
 import aerolinea.datosAsiento.excepcionesAsiento.AsientoVendidoException;
 import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
@@ -17,7 +18,7 @@ import aerolinea.excepcionesAerolinea.UsuarioNoEncontradoException;
 import java.util.List;
 import java.util.Objects;
 
-public class AerolineaGeneral {
+public class AerolineaGeneral implements Aerolinea{
     protected LinkedList<Vuelo> vuelosDisponibles;
     protected LinkedList<AsientoGeneralVuelo> asientosVendidos;
     protected TreeMap<Integer,Usuario> usuariosSuscriptos;
@@ -58,6 +59,7 @@ public class AerolineaGeneral {
                 .collect(Collectors.toList()).get(0);
     }
     
+    @Override
     public void reservar(String codigoAsiento, Integer dni) throws AsientoReservadoException, CodigoAsientoException, UsuarioNoEncontradoException{
         AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
         if (asientoBuscado.getDatosAsiento().getEstado().estaReservado()) {
@@ -121,5 +123,29 @@ public class AerolineaGeneral {
         
     }*/
 
+    @Override
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
+        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+        return asientosCumplenSolicitud;
+    }
+
+    @Override
+    public void comprar(String codigoAsiento, Usuario comprador) {
+        try {
+            AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
+            if(!asientoBuscado.getDatosAsiento().getEstado().asientoVendido()){
+                marcarComoVendido(asientoBuscado);
+                comprador.marcarComoComprado(asientoBuscado);
+                comprador.efectuarCompra(precioTotal(asientoBuscado, comprador));
+            }
+            else{
+                throw new AsientoVendidoException("El asiento asociado al codigo ingresado ya fue vendido");
+            }
+
+        } catch (CodigoAsientoException ex) {
+            throw new CodigoAsientoNoEncontradoException("El codigo de asiento ingresado no pudo ser reconocido");
+        }
+    }
 
 }

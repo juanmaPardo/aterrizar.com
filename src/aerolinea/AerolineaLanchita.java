@@ -32,6 +32,7 @@ public class AerolineaLanchita extends AerolineaGeneral{
     public AerolineaLanchita(LinkedList<Vuelo> vuelosDisponibles,double recargoAerolinea, int diasParaQueExpireReserva) throws PorcentajeIncorrectoException {
         super(vuelosDisponibles,recargoAerolinea, diasParaQueExpireReserva);
     }
+
    
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
@@ -41,5 +42,5 @@ public class AerolineaLanchita extends AerolineaGeneral{
     
     
     //public void eliminarAsientoComprado()
-    
+
 }

@@ -1,6 +1,7 @@
 package aerolinea;
 
 import aerolinea.busqueda.Busqueda;
+import aerolinea.busqueda.ExcepcionesBusqueda.ParametrosInsuficienteException;
 import aerolinea.datosAsiento.DatosAsientoLanchita;
 import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
 import aerolinea.vuelo.AsientoGeneral;
@@ -44,13 +45,12 @@ public class AerolineaOceanic extends AerolineaGeneral{
         return asientosCumplenSolicitud;
     }
     
-    
     public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigen(String codigoOrigenOceanic, String fechaSalida) throws FormatoFechaIncorrectoException, FechaNoValidaException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         return asientosDisponibles(new Busqueda(new CiudadPartida(codigoOrigenModificado), new FechaFlexible(fechaSalida)));
     }
     
-    public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigenYDestino(String codigoOrigenOceanic,String fechaSalida,String codigoDestinoOceanic) throws FormatoFechaIncorrectoException, FechaNoValidaException{
+    public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigenYDestino(String codigoOrigenOceanic,String fechaSalida,String codigoDestinoOceanic) throws FormatoFechaIncorrectoException, FechaNoValidaException, ParametrosInsuficienteException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         String codigoDestinoModificado = modificarCodigoCiudad(codigoDestinoOceanic);
         return asientosDisponibles(new Busqueda(new CiudadDestino(codigoDestinoModificado),new CiudadPartida(codigoOrigenModificado),new FechaFlexible(fechaSalida)));
@@ -61,6 +61,7 @@ public class AerolineaOceanic extends AerolineaGeneral{
     public Boolean comprarSiHayDisponibilidad(String dni, String codigoVuelo, Integer numeroDeAsiento);
     
     public Boolean reservar(String dni, String codigoVuelo, Integer numeroDeAsiento);*/
+
 
     @Override
     public void comprar(String codigoAsiento,Usuario comprador) {

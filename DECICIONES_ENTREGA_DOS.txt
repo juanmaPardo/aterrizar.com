@@ -1,0 +1,42 @@
+(Cabe destacar que todavia hay cosas en desarrollo y cosas que se van cambiando asi que no es la documentacion definitiva)
+En las aerolineas practicamente cambiamos todo el modelo y hay mucho que explicar.
+Primero lo primero, la comunicacion nos parecio erronea, recibir en asientosDisponibles como parametros 6 strings como se detalla ahi
+mas los que van a agregar despues con los post-requisitos que iba pidiendo de precioMaximo-minimo,etc se iban a terminar recibiendo miles de
+parametros lo cual no vimos correcto, entonces decidimos cambiarlo a que reciba una instancia de la clase Busqueda, ¿Que es la clase busqueda
+y que se encarga de hacer? Bueno, eso esta indicado en mi documentacion personal ya que hace referencia a la parte indidivual de la entrega tres,
+si se desea conocer mas sobre su comportamiento ir al archivo DECICIONES_BUSQUEDA.txt.
+
+Ya explicado entonces la funcionalidad de busqueda. Decidimos crear una clase AerolineaGeneral la cual incluye comportamiento propio a todas las 
+aerolineas, en esta clase se encuentra una Lista de vuelos, una lista de asientos vendidos, una lista de asientos reservados(que no esta acualmente
+pero va a ser agregado en un futuro muy cercano) y un TreeMap con los usuariosSuscriptos,donde la clave es el dni y el value la instancia 
+de la clase Usuario.A su vez tenemos el recargo a los usuarios no inscriptos, los dias para que expire la reserva propio de cada aerolinea
+y el recargo propio de la aerolinea. A su vez hay metodos para obtener los vuelos disponibles de la aerolinea entre otro tipo de funcionalidades
+propias de una aerolinea para contemplar el dominio del problema
+
+¿Porque un TreeMap para los usuarios?
+Bueno, se decidio por un treeMap porque la cantidad de usuarios que pueden estar suscriptos a una aerolinea puede ser muy grande, y como
+el DNI es un atributo que identifica a un usuario unívocamente se puede usar como caracter identificatorio del mismo, de esa manera
+si tenemos que hacer busquedas para encontrar a un usuario la complejidad temporal de la misma sera log(N) siendo N la cantidad de usuarios
+inscriptos a la aerolinea, lo cual es notoblamente mas rapido en perfomance que si los tuviesemos en una lista.
+
+
+A su vez tenemos AerolineaLanchita y Oceanic que heredan de la superclase aerolinea, la idea es que en caso de que se agrege una nueva aerolinea
+la misma deberia extender esta superclase y agregar su propias funcionalidades de ser propio.
+
+A su vez tenemos una Clase vuelo donde en la misma se encuentra datos referentes al vuelo como una Lista de Asientos,ciudad origen,destino,fecha
+salida,hora salida entre otros y dentro de Asiento General Vuelo tenemos los datos de los aciento.
+
+Dentro de los datos de los asientos tenemos la ubicacion,clase,precio,estado asiento, el codigo del asiento entre otras cosas. En muchos casos
+donde las opciones estaban reducidas como la ubicacion creamos un enum que contemple las diferentes posibilidades, lo mismo hicimos con el 
+estado del asiento y la clase.
+
+DatosAsientoLanchita,DatosAsientoOceanic heredan de la superclase DatosAsientoGeneral para que las mismas compartan una misma funcionalidad
+que represente al asiento y despues cada una de necesitarlo deberia implementar como extra sus propias funcionalidades.
+
+Por ultimo tenemos la clase aterrizar que de momento tiene una lista con todas las aerolineas asociadas a la pagina y un TreeSet de usuarios.
+
+Nos definimos por este modelo porque intentamos desacoplar y encapsular los diferentes elementos que componen a una aerolinea de manera tal que 
+cada funcionalidad referente a alto este encapsulado en una clase con sus debidos metodos, ya que de esa manera es mas expresivo y se puede
+trabajar mejor que agregar por ejemplo un string en donde "T" signifique turista "E" ejecutivo, etc. Nos parecio mas claro crear una clase
+para la ubicacion del asiento con sus metodos y un enum dentro de esa clase que nos detalle que asiento es, basicamente seguimos esa ideologia
+con el resto de las cosas para que sea mas expresivo y mantenible a futuro y poder eliminar las incosistencias que se podrian presentar.

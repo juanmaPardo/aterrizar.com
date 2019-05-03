@@ -18,7 +18,7 @@ import aerolinea.excepcionesAerolinea.UsuarioNoEncontradoException;
 import java.util.List;
 import java.util.Objects;
 
-public class AerolineaGeneral {
+public class AerolineaGeneral{
     protected LinkedList<Vuelo> vuelosDisponibles;
     protected LinkedList<AsientoGeneralVuelo> asientosVendidos;
     protected LinkedList<AsientoGeneralVuelo> asientosReservados;
@@ -126,6 +126,7 @@ public class AerolineaGeneral {
     /*public boolean esSuperOferta(AsientoGeneralVuelo asiento){
         
     }*/
+
     public void comprar(String codigoAsiento,Usuario comprador) throws CodigoAsientoException{
         AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
         if(asientoBuscado.getDatosAsiento().getEstado().asientoVendido() || asientoBuscado.getDatosAsiento().getEstado().estaReservado()){
@@ -135,4 +136,12 @@ public class AerolineaGeneral {
         comprador.marcarComoComprado(asientoBuscado);
         comprador.efectuarCompra(precioTotal(asientoBuscado, comprador));
     }
+
+
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
+        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+        return asientosCumplenSolicitud;
+    }
+
 }

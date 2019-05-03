@@ -28,13 +28,6 @@ public class Busqueda {
     private LinkedList<FiltroBusqueda> filtroBusqueda;
     private LinkedList<ClaseAsientoVuelo> filtroClaseAsiento;
     
-    public Busqueda(CiudadDestino destino, CiudadPartida partida, Fecha fecha){
-        filtroBusqueda = new LinkedList<>();
-        filtroBusqueda.add(destino);
-        filtroBusqueda.add(partida);
-        filtroBusqueda.add(fecha);
-    }
-    
     public Busqueda(CiudadPartida partida, Fecha fecha){
         filtroBusqueda = new LinkedList<>();
         filtroBusqueda.add(partida);

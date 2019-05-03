@@ -17,4 +17,6 @@ public interface Aerolinea {
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda);
      
     public void comprar(String codigoAsiento,Usuario comprado);
+    
+    public void reservar(String codigo, String dni);
 }

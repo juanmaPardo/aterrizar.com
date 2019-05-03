@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 import usuario.Usuario;
 
-public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
+public class AerolineaOceanic extends AerolineaGeneral{
     final static double RECARGO_AEROLINEA = 0.10;
     public AerolineaOceanic() throws PorcentajeIncorrectoException{
         super(RECARGO_AEROLINEA);
@@ -38,7 +38,6 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
         return nuevoCodigoCiudad;
     }
     
-    @Override
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
         List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
@@ -68,11 +67,4 @@ public class AerolineaOceanic extends AerolineaGeneral implements Aerolinea{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void reservar(String codigo, String dni) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-    
 }

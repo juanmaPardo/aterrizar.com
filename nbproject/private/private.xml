@@ -7,26 +7,11 @@
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/busqueda/BusquedaTest.java</file>
         </group>
         <group>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/ClasesAsientoVuelo.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aterrizar/Aterrizar.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoGeneral.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoLanchita.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/CodigoAsiento.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/usuario/Usuario.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/vuelo/Vuelo.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/ClaseAsientoVuelo.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/EstadoAsiento.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/excepcionesAerolinea/UsuarioNoEncontradoException.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/AerolineaOceanic.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/excepcionesAerolinea/AsientoReservadoException.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/vuelo/AsientoGeneralVuelo.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoOceanic.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/fecha/Fecha.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/vuelo/informacionVuelo/InformacionVuelo.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/aerolinea/Aerolinea.java</file>
-            <file>file:/home/estudiante/Escritorio/at/aterrizar.com/src/fecha/FechaFlexible.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaOceanic.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/usuario/Usuario.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/Aerolinea.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
         </group>
     </open-files>
 </project-private>

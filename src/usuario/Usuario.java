@@ -1,5 +1,9 @@
 package usuario;
 
+import aerolinea.AerolineaGeneral;
+import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
+import aerolinea.excepcionesAerolinea.AsientoReservadoException;
+import aerolinea.excepcionesAerolinea.UsuarioNoEncontradoException;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import static java.lang.Integer.compare;
 import java.util.LinkedList;
@@ -53,9 +57,21 @@ public class Usuario implements Comparable<Usuario>{
         perfil.incrementarDineroGastado(costoCompra);
     }
     
+    public void reservarAsiento(String codigoAsiento, AerolineaGeneral aerolinea) throws AsientoReservadoException, CodigoAsientoException, UsuarioNoEncontradoException{
+        aerolinea.reservar(codigoAsiento, dni);
+    }
+    
+    public void comprarAsiento(String codigoAsiento, AerolineaGeneral aerolinea) throws CodigoAsientoException{
+        aerolinea.comprar(codigoAsiento, this);
+    }
+    
     @Override
     public int compareTo(Usuario otroUsuario) {
         return Integer.compare(this.dni,otroUsuario.dni);
+    }
+
+    public void quitarASientoReservado(AsientoGeneralVuelo asiento) {
+        asientosReservados.remove(asiento);
     }
     
     

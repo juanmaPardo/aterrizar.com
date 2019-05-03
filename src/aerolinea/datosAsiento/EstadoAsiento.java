@@ -28,6 +28,10 @@ public class EstadoAsiento implements FiltroBusqueda{
         estadoAsiento = EstadoAsientoVuelo.VENDIDO;
     }
     
+    public void asientoDisponible(){
+        estadoAsiento = EstadoAsientoVuelo.DISPONIBLE;
+    }
+    
     public boolean asientoVendido(){
         return estadoAsiento == EstadoAsientoVuelo.VENDIDO;
     }

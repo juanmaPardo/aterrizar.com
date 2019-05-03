@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import usuario.Usuario;
 
-public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
+public class AerolineaLanchita extends AerolineaGeneral{
     final static double RECARGO_AEROLINEA = 0.15;
     public AerolineaLanchita() throws PorcentajeIncorrectoException {
         super(RECARGO_AEROLINEA);
@@ -32,8 +32,7 @@ public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
     public AerolineaLanchita(LinkedList<Vuelo> vuelosDisponibles,double recargoAerolinea, int diasParaQueExpireReserva) throws PorcentajeIncorrectoException {
         super(vuelosDisponibles,recargoAerolinea, diasParaQueExpireReserva);
     }
-    
-    @Override
+   
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
         List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
@@ -42,29 +41,5 @@ public class AerolineaLanchita extends AerolineaGeneral implements Aerolinea {
     
     
     //public void eliminarAsientoComprado()
-    
-    @Override
-    public void comprar(String codigoAsiento,Usuario comprador) {
-        try {
-            AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
-            if(!asientoBuscado.getDatosAsiento().getEstado().asientoVendido()){
-                marcarComoVendido(asientoBuscado);
-                comprador.marcarComoComprado(asientoBuscado);
-                comprador.efectuarCompra(precioTotal(asientoBuscado, comprador));
-            }
-            else{
-                throw new AsientoVendidoException("El asiento asociado al codigo ingresado ya fue vendido");
-            }
-            
-        } catch (CodigoAsientoException ex) {
-            throw new CodigoAsientoNoEncontradoException("El codigo de asiento ingresado no pudo ser reconocido");
-        }
-    }
-
-    @Override
-    public void reservar(String codigo, String dni) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     
 }

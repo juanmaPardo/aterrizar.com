@@ -39,7 +39,12 @@ public class AerolineaOceanic extends AerolineaGeneral{
         return nuevoCodigoCiudad;
     }
     
-     
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
+        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+        return asientosCumplenSolicitud;
+    }
+    
     public List<AsientoGeneralVuelo> asientosDisponiblesParaOrigen(String codigoOrigenOceanic, String fechaSalida) throws FormatoFechaIncorrectoException, FechaNoValidaException{
         String codigoOrigenModificado = modificarCodigoCiudad(codigoOrigenOceanic);
         return asientosDisponibles(new Busqueda(new CiudadPartida(codigoOrigenModificado), new FechaFlexible(fechaSalida)));
@@ -57,5 +62,10 @@ public class AerolineaOceanic extends AerolineaGeneral{
     
     public Boolean reservar(String dni, String codigoVuelo, Integer numeroDeAsiento);*/
 
-    
+
+    @Override
+    public void comprar(String codigoAsiento,Usuario comprador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

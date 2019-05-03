@@ -32,10 +32,15 @@ public class AerolineaLanchita extends AerolineaGeneral{
     public AerolineaLanchita(LinkedList<Vuelo> vuelosDisponibles,double recargoAerolinea, int diasParaQueExpireReserva) throws PorcentajeIncorrectoException {
         super(vuelosDisponibles,recargoAerolinea, diasParaQueExpireReserva);
     }
-    
-       
-    //public void eliminarAsientoComprado()
-    
 
+   
+    public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
+        LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
+        List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
+        return asientosCumplenSolicitud;
+    }
     
+    
+    //public void eliminarAsientoComprado()
+
 }

@@ -75,7 +75,21 @@
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/excepcionesAerolinea/PorcentajeIncorrectoException.java</file>
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/Busqueda.java</file>
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/ordenamiento/OrdenPorPopularidad.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aterrizar/Aterrizar.java</file>
+=======
+        </group>
+        <group>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/vuelo/AsientoGeneralVuelo.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/usuario/PerfilUsuario.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaOceanic.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/usuario/Usuario.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoGeneral.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/datosAsiento/CodigoAsiento.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/datosAsiento/EstadoAsiento.java</file>
+            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
+>>>>>>> da6ec2aead73f10c0b15343fd2126bcf1c1c8250
         </group>
     </open-files>
 </project-private>

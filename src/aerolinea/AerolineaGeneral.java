@@ -18,9 +18,10 @@ import aerolinea.excepcionesAerolinea.UsuarioNoEncontradoException;
 import java.util.List;
 import java.util.Objects;
 
-public class AerolineaGeneral implements Aerolinea{
+public class AerolineaGeneral{
     protected LinkedList<Vuelo> vuelosDisponibles;
     protected LinkedList<AsientoGeneralVuelo> asientosVendidos;
+    protected LinkedList<AsientoGeneralVuelo> asientosReservados;
     protected TreeMap<Integer,Usuario> usuariosSuscriptos;
     protected double recargoAerolinea;
     protected final double RECARGO_NO_INSCRIPTOS = 20;
@@ -36,6 +37,7 @@ public class AerolineaGeneral implements Aerolinea{
         this.vuelosDisponibles.addAll(vuelosDisponibles);
         this.recargoAerolinea = recargoAerolinea;
         this.diasParaQueExpireReserva = diasParaQueExpireReserva;
+        this.asientosReservados = new LinkedList <>();
     }
 
     public AerolineaGeneral(double recargoAerolinea) throws PorcentajeIncorrectoException {
@@ -59,17 +61,14 @@ public class AerolineaGeneral implements Aerolinea{
                 .collect(Collectors.toList()).get(0);
     }
     
-    @Override
     public void reservar(String codigoAsiento, Integer dni) throws AsientoReservadoException, CodigoAsientoException, UsuarioNoEncontradoException{
         AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
         if (asientoBuscado.getDatosAsiento().getEstado().estaReservado()) {
             throw new AsientoReservadoException("El asiento asociado al codigo ingresado ya fue reservado");
         }
         reservarAsiento(asientoBuscado);
+        asientosReservados.add(asientoBuscado);
         Usuario usuarioAsociado = obtenerUsurioAsociado(dni);
-        //Creas clase AsientoReservado asientoReservado = new AsientoReservado(usuarioAsociado,diasParaQueExpire)
-        //asientosReservados.add(asientoReservado);
-        //La de abajo cambia a -> usuarioAsociado.agregarAsientoReservado(asientoReservado);
         usuarioAsociado.agregarAsientoReservado(asientoBuscado);
     }
     
@@ -83,9 +82,14 @@ public class AerolineaGeneral implements Aerolinea{
  
     }
     
+    public void expiroReserva(AsientoGeneralVuelo asiento, Usuario usuario){
+        asiento.getDatosAsiento().getEstado().asientoDisponible();
+        asientosReservados.remove(asiento);
+        usuario.quitarASientoReservado(asiento);
+    }
+    
     private void reservarAsiento(AsientoGeneralVuelo asientoBuscado) {
         asientoBuscado.getDatosAsiento().getEstado().reservarAsiento();
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
   
     protected void marcarComoVendido(AsientoGeneralVuelo asiento){
@@ -123,29 +127,21 @@ public class AerolineaGeneral implements Aerolinea{
         
     }*/
 
-    @Override
+    public void comprar(String codigoAsiento,Usuario comprador) throws CodigoAsientoException{
+        AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
+        if(asientoBuscado.getDatosAsiento().getEstado().asientoVendido() || asientoBuscado.getDatosAsiento().getEstado().estaReservado()){
+            throw new AsientoVendidoException("El asiento asociado al codigo ingresado ya fue vendido");  
+        }
+        marcarComoVendido(asientoBuscado);
+        comprador.marcarComoComprado(asientoBuscado);
+        comprador.efectuarCompra(precioTotal(asientoBuscado, comprador));
+    }
+
+
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
         List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);
         return asientosCumplenSolicitud;
-    }
-
-    @Override
-    public void comprar(String codigoAsiento, Usuario comprador) {
-        try {
-            AsientoGeneralVuelo asientoBuscado = obtenerAsiento(codigoAsiento);
-            if(!asientoBuscado.getDatosAsiento().getEstado().asientoVendido()){
-                marcarComoVendido(asientoBuscado);
-                comprador.marcarComoComprado(asientoBuscado);
-                comprador.efectuarCompra(precioTotal(asientoBuscado, comprador));
-            }
-            else{
-                throw new AsientoVendidoException("El asiento asociado al codigo ingresado ya fue vendido");
-            }
-
-        } catch (CodigoAsientoException ex) {
-            throw new CodigoAsientoNoEncontradoException("El codigo de asiento ingresado no pudo ser reconocido");
-        }
     }
 
 }

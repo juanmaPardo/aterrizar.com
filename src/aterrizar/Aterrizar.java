@@ -1,20 +1,20 @@
 package aterrizar;
 
+import aerolinea.AerolineaGeneral;
 import usuario.Usuario;
 import aerolinea.AerolineaGeneral;
 import aerolinea.vuelo.AsientoGeneralVuelo;
 import java.util.LinkedList;
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 public class Aterrizar {
     LinkedList<AerolineaGeneral> aerolineas;
-    TreeSet<Usuario> usuarios;
     LinkedList<AsientoGeneralVuelo> asientosSobreReservados;
-    
+    protected TreeMap<Integer,Usuario> usuarios;
 
     public Aterrizar() {
         aerolineas = new LinkedList<>();
-        usuarios = new TreeSet<>();
+        usuarios = new TreeMap<>();
     }
     
     
@@ -23,12 +23,11 @@ public class Aterrizar {
         asientosSobreReservados.add(asiento);
         usuario.agregarAsientoSobrereservado(asiento);
     }
-    
     public void agregarAerolinea(AerolineaGeneral aerolinea){
         aerolineas.add(aerolinea);
     }
     
     public void agregarUsuario(Usuario usuario){
-        usuarios.add(usuario);
+        usuarios.put(usuario.getDni(), usuario);
     }
 }

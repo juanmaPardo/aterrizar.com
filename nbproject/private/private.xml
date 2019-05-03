@@ -2,60 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="TrabajoPracticoAterrizar">
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/vuelo/VueloTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/vuelo/AsientoGeneral.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/busqueda/ordenamiento/OrdenPorPrecioDescendenteTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/vuelo/AsientoGeneralVuelo.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/vuelo/AsientoVueloTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/AerolineaLanchita.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/fecha/FechaTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/ordenamiento/OrdenamientoAsientos.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/datosAsiento/DatosAsientoGeneralTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/horarios/Hora.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/busqueda/ordenamiento/ComparadorPorPrecioTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/busqueda/BusquedaTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/AerolineaLanchitaTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/EstadoAsiento.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/PrecioAsiento.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/ordenamiento/OrdenPorPrecioDescendente.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/EstadoAsientoVuelo.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/vuelo/Vuelo.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/excepcionesAsiento/AsientoVendidoException.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/aerolineaOceanic/AerolineaOceanicTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/vuelo/AsientoVueloLanchita.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/usuario/Usuario.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/fecha/FechaFormatoNorteamericano.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/ClasesAsientoVuelo.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/FiltroBusqueda.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/excepcionesAerolinea/CodigoAsientoNoEncontradoException.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/fecha/FechaFlexible.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/fecha/Fecha.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/AerolineaOceanic.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/CodigoAsiento.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/vuelo/CiudadDestino.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/ordenamiento/OrdenPorPrecioAscendente.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/vuelo/CiudadPartida.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoLanchita.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/test/aerolinea/busqueda/ordenamiento/OrdenPorPrecioAscendenteTest.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/PrecioMinimoAsiento.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoOceanic.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/DatosAsientoGeneral.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/PrecioMaximoAsiento.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/Aerolinea.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/usuario/PerfilUsuario.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/UbicacionAsiento.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/datosAsiento/ClaseAsientoVuelo.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/fecha/FechaFormatoLatinoamericano.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/fecha/FechaFormatoIso.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/excepcionesAerolinea/PorcentajeIncorrectoException.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/Busqueda.java</file>
-            <file>file:/C:/Users/juanm/Documents/NetBeansProjects/aterrizar.com/src/aerolinea/busqueda/ordenamiento/OrdenPorPopularidad.java</file>
-        </group>
         <group>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aerolinea/AerolineaGeneral.java</file>
-            <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/usuario/Usuario.java</file>
             <file>file:/C:/Users/santi/Desktop/git/folder1/aterrizar.com/src/aterrizar/Aterrizar.java</file>
         </group>
     </open-files>

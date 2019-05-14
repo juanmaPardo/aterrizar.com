@@ -1,5 +1,6 @@
 package aerolinea;
 
+import aerolinea.busqueda.Busqueda;
 import aerolinea.datosAsiento.ClaseAsientoVuelo;
 import aerolinea.datosAsiento.ClasesAsientoVuelo;
 import aerolinea.datosAsiento.CodigoAsiento;
@@ -12,9 +13,11 @@ import aerolinea.datosAsiento.UbicacionAsientoVuelo;
 import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
+import aerolinea.vuelo.AsientoGeneralVuelo;
 import aerolinea.vuelo.CiudadDestino;
 import aerolinea.vuelo.CiudadPartida;
 import aerolinea.vuelo.Vuelo;
+import usuario.Usuario;
 import fecha.Fecha;
 import fecha.FechaFlexible;
 import fecha.FechaFormatoLatinoamericano;
@@ -24,15 +27,21 @@ import horarios.Hora;
 import horarios.excepcionesHora.FormatoHoraIncorrectoException;
 import horarios.excepcionesHora.HoraInvalidaException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import junit.framework.Assert;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import usuario.DniInvalidoException;
+import usuario.Usuario;
 
 
-public class AerolineaLanchitaTest {
+public class AerolineaGeneralTest {
     LinkedList<DatosAsientoGeneral> asientos;
     DatosAsientoLanchita asiento;
     DatosAsientoLanchita asiento1;
@@ -68,7 +77,8 @@ public class AerolineaLanchitaTest {
     AerolineaLanchita aerolineaUno;
     AerolineaLanchita aeroLineaDos;
     AerolineaOceanic aerolineaOc;
-    public AerolineaLanchitaTest() {
+    
+    public AerolineaGeneralTest() {
     }
     
     @Before
@@ -169,21 +179,13 @@ public class AerolineaLanchitaTest {
     }
     
     @Test
-    public void seAgregarVuelosAerolineaUno(){
-        aerolineaUno.agregarVuelo(vuelo);
-    }
-    
-    @Test
-    public void seAgregarVuelosAerolineaDos(){
-        aerolineaUno.agregarVuelo(vueloDos);
+    public void usuarioCompraAsientoExitosamente() throws DniInvalidoException, CodigoAsientoException{
+        Usuario usuario = new Usuario("Juan","Carlos",32524178);
         aerolineaUno.agregarVuelo(vueloTres);
+        aerolineaUno.agregarVuelo(vuelo);
+        aerolineaUno.comprar("G4V3-13", usuario);
+        Assert.assertEquals(aerolineaUno.asientosVendidos.get(0).getDatosAsiento().getCodigoAsiento().getCodigo(),"G4V3-13" );
+        Assert.assertEquals(164.325,usuario.getPerfil().dineroGastado());
     }
-    
-    @Test
-    public void seAgregarVuelosAerolineaOceanic(){
-        aerolineaOc.agregarVuelo(vueloOceanicUno);
-    }
-    
-            
     
 }

@@ -1,5 +1,6 @@
 package aerolinea.datosAsiento;
 
+import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.vuelo.AsientoVueloLanchita;
 import aerolinea.vuelo.CiudadDestino;
@@ -16,8 +17,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+
 
 public class DatosAsientoGeneralTest {
     PrecioAsiento precio;
@@ -143,5 +143,11 @@ public class DatosAsientoGeneralTest {
     public void asientoNoCumpleParametroUbicacion() throws PrecioNegativoException{
         UbicacionAsiento ubic = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
         Assert.assertEquals(false,ubic.asientoVueloCumpleParametro(asientoLanchita));
+    }
+    
+    @Test
+    public void asientoCumpleCodigo() throws CodigoAsientoException{
+        CodigoAsiento codigoVuelo= new CodigoAsiento("LV2O-15");
+        Assert.assertTrue(codigoVuelo.asientoVueloCumpleParametro(asientoLanchita));
     }
 }

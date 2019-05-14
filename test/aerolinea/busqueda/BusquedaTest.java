@@ -146,7 +146,7 @@ public class BusquedaTest {
     }
     
     @Test
-    public void creaBusquedaExitosamenteConTres() {
+    public void creaBusquedaExitosamenteConTres() throws ParametrosInsuficienteException {
         Busqueda busqueda = new Busqueda(busquedaCiudadDestino,busquedaCiudadPartida,fechaSalida);
     }
     @Test

@@ -187,5 +187,12 @@ public class AerolineaGeneralTest {
         Assert.assertEquals(aerolineaUno.asientosVendidos.get(0).getDatosAsiento().getCodigoAsiento().getCodigo(),"G4V3-13" );
         Assert.assertEquals(164.325,usuario.getPerfil().dineroGastado());
     }
-    
+    @Test
+    public void usuarioCompraAsientoExitosamenteYSeAgregaALosCompradosPorElUsuario() throws DniInvalidoException, CodigoAsientoException{
+        Usuario usuario = new Usuario("Juan","Carlos",32524178);
+        aerolineaUno.agregarVuelo(vueloTres);
+        aerolineaUno.agregarVuelo(vuelo);
+        aerolineaUno.comprar("G4V3-13", usuario);
+        Assert.assertEquals(usuario.getAsientosComprados().get(0).getDatosAsiento().getCodigoAsiento().getCodigo(),"G4V3-13" );
+    }
 }

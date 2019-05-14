@@ -78,6 +78,18 @@ public class Usuario implements Comparable<Usuario>{
     public void quitarASientoReservado(AsientoGeneralVuelo asiento) {
         asientosReservados.remove(asiento);
     }
+
+    public LinkedList<AsientoGeneralVuelo> getAsientosComprados() {
+        return asientosComprados;
+    }
+
+    public LinkedList<AsientoGeneralVuelo> getAsientosReservados() {
+        return asientosReservados;
+    }
+
+    public LinkedList<AsientoGeneralVuelo> getAsientosSobreReservados() {
+        return asientosSobreReservados;
+    }
     
     
 }

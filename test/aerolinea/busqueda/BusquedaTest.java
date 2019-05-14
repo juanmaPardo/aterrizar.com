@@ -46,9 +46,9 @@ import static org.junit.Assert.*;
 
 public class BusquedaTest {
     
-    DatosAsientoLanchita asiento5;
-    DatosAsientoLanchita asiento6;
-    DatosAsientoLanchita asiento7;
+    DatosAsientoLanchita asientoEjecutivoPasillo500;
+    DatosAsientoLanchita asientoPrimeraCLaseVentana125;
+    DatosAsientoLanchita asientoTuristaVentana250;
     CiudadPartida buenosAires;
     CiudadPartida paris;
     CiudadPartida asuncion;
@@ -59,7 +59,7 @@ public class BusquedaTest {
     Fecha fechaSalida2;
     Hora horaSalida2;
     Hora horaSalida3;
-    Vuelo vueloDos;
+    Vuelo vueloParisMontevideo;
     Busqueda busquedaUno;
     Busqueda busquedaDos;
     Busqueda busquedaTres;
@@ -72,7 +72,7 @@ public class BusquedaTest {
     PrecioMaximoAsiento precioMaximo;
     PrecioMinimoAsiento precioMinimo;
     ClaseAsientoVuelo busquedaClase;
-    
+    ClaseAsientoVuelo claseEjecutivo;
     
     public BusquedaTest() {
     }
@@ -80,14 +80,14 @@ public class BusquedaTest {
     @Before
     public void setUp() {
         try {
-            PrecioAsiento precio1 = new PrecioAsiento(125.50);
-            PrecioAsiento precio2 = new PrecioAsiento(250.50);
-            PrecioAsiento precio3 = new PrecioAsiento(500);
-            ClaseAsientoVuelo clase = new ClaseAsientoVuelo(ClasesAsientoVuelo.TURISTA);
-            ClaseAsientoVuelo clase1 = new ClaseAsientoVuelo(ClasesAsientoVuelo.EJECUTIVO);
-            ClaseAsientoVuelo clase2 = new ClaseAsientoVuelo(ClasesAsientoVuelo.PRIMERA_CLASE);
-            UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
-            UbicacionAsiento ubicacion2 = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
+            PrecioAsiento sale125 = new PrecioAsiento(125.50);
+            PrecioAsiento sale250 = new PrecioAsiento(250.50);
+            PrecioAsiento sale500 = new PrecioAsiento(500);
+            ClaseAsientoVuelo claseTurista = new ClaseAsientoVuelo(ClasesAsientoVuelo.TURISTA);
+            claseEjecutivo = new ClaseAsientoVuelo(ClasesAsientoVuelo.EJECUTIVO);
+            ClaseAsientoVuelo primeraClase = new ClaseAsientoVuelo(ClasesAsientoVuelo.PRIMERA_CLASE);
+            UbicacionAsiento ubVentana = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
+            UbicacionAsiento ubPasillo = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
             
             
             losAngeles = new CiudadDestino("LA");
@@ -105,14 +105,14 @@ public class BusquedaTest {
             CodigoAsiento codigoVueloDos1 = new CodigoAsiento("LV2O","15");
             CodigoAsiento codigoVueloDos2 = new CodigoAsiento("LV2O","16");
             CodigoAsiento codigoVueloDos3 = new CodigoAsiento("LV2O","17");
-            asiento5 = new DatosAsientoLanchita(codigoVueloDos1, precio3, clase1, ubicacion2);
-            asiento6 = new DatosAsientoLanchita(codigoVueloDos1, precio1, clase2, ubicacion);
-            asiento7 = new DatosAsientoLanchita(codigoVueloDos1, precio2, clase, ubicacion);
+            asientoEjecutivoPasillo500 = new DatosAsientoLanchita(codigoVueloDos1, sale500, claseEjecutivo, ubPasillo);
+            asientoPrimeraCLaseVentana125 = new DatosAsientoLanchita(codigoVueloDos1, sale125, primeraClase, ubVentana);
+            asientoTuristaVentana250 = new DatosAsientoLanchita(codigoVueloDos1, sale250, claseTurista, ubVentana);
             
-            vueloDos = new Vuelo(paris, montevideo, horaSalida2, fechaSalida2);
-            vueloDos.agregarAsiento(asiento5);
-            vueloDos.agregarAsiento(asiento6);
-            vueloDos.agregarAsiento(asiento7);
+            vueloParisMontevideo = new Vuelo(paris, montevideo, horaSalida2, fechaSalida2);
+            vueloParisMontevideo.agregarAsiento(asientoEjecutivoPasillo500);
+            vueloParisMontevideo.agregarAsiento(asientoPrimeraCLaseVentana125);
+            vueloParisMontevideo.agregarAsiento(asientoTuristaVentana250);
             
             
             
@@ -125,8 +125,8 @@ public class BusquedaTest {
             busquedaClase = new ClaseAsientoVuelo(ClasesAsientoVuelo.TURISTA);
             
             
-            busquedaUno = new Busqueda(paris,montevideo,fechaSalida2,clase1);
-            busquedaDos = new Busqueda(paris,montevideo,fechaSalida2,clase1,clase2);
+            busquedaUno = new Busqueda(paris,montevideo,fechaSalida2,claseEjecutivo);
+            busquedaDos = new Busqueda(paris,montevideo,fechaSalida2,claseEjecutivo,primeraClase);
             /*busquedaDos = new Busqueda(new CiudadPartida("ROM"), new CiudadDestino("MON"),new FechaFlexible("2017/05/12"));
             busquedaTres = new Busqueda(new CiudadPartida("ROM"), new CiudadDestino("MON"),new FechaFlexible("2017/05/12"));*/
         } catch (FormatoFechaIncorrectoException | FechaNoValidaException | FormatoHoraIncorrectoException | HoraInvalidaException | PrecioNegativoException | ParametrosInsuficienteException ex) {
@@ -175,19 +175,20 @@ public class BusquedaTest {
                     ,busquedaCiudadPartida,precioMaximo,precioMinimo,busquedaClase);
     }
     @Test
-    public void filtraAsientosDevuelveUnoSolo(){
-        List<AsientoGeneralVuelo> resultado = busquedaUno.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+    public void filtraAsientosDevuelveUnoSolo() throws ParametrosInsuficienteException{
+        busquedaUno = new Busqueda(paris,montevideo,fechaSalida2,claseEjecutivo);
+        List<AsientoGeneralVuelo> resultado = busquedaUno.asientosCumplenRequisitoBusqueda(vueloParisMontevideo.getDatosAsientoVuelo());
         List<DatosAsientoGeneral> asientos = resultado.stream()
                 .map(asiento -> asiento.getDatosAsiento()).collect(Collectors.toList());
-        MatcherAssert.assertThat(asientos,Matchers.hasItem(asiento5));
+        MatcherAssert.assertThat(asientos,Matchers.hasItem(asientoEjecutivoPasillo500));
         
     }
     @Test
     public void filtraAsientosDevuelveDosAsientos(){
-        List<AsientoGeneralVuelo> resultado = busquedaDos.asientosCumplenRequisitoBusqueda(vueloDos.getDatosAsientoVuelo());
+        List<AsientoGeneralVuelo> resultado = busquedaDos.asientosCumplenRequisitoBusqueda(vueloParisMontevideo.getDatosAsientoVuelo());
         List<DatosAsientoGeneral> asientos = resultado.stream()
                 .map(asiento -> asiento.getDatosAsiento()).collect(Collectors.toList());
-        MatcherAssert.assertThat(asientos,Matchers.hasItems(asiento5,asiento6));
+        MatcherAssert.assertThat(asientos,Matchers.hasItems(asientoEjecutivoPasillo500,asientoPrimeraCLaseVentana125));
         
     }
 }

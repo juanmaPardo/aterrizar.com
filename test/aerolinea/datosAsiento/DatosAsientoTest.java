@@ -23,7 +23,7 @@ public class DatosAsientoTest {
             
             DatosAsientoLanchita asiento = new DatosAsientoLanchita(codigo, precio, clase, ubicacion);
             
-            Assert.assertEquals(asiento.getCodigoAsiento(), "G4V3-13");
+            Assert.assertEquals(asiento.getCodigoAsiento().getCodigo(), "G4V3-13");
             Assert.assertEquals(asiento.getEstado().getEstadoAsiento(), EstadoAsientoVuelo.DISPONIBLE);
             Assert.assertEquals(asiento.getPrecio().getPrecioAsiento(), 125.50);
             Assert.assertEquals(asiento.getUbicacionAsiento().getUbicacionAsiento(), UbicacionAsientoVuelo.VENTANA);

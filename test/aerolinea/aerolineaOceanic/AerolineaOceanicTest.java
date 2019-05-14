@@ -14,6 +14,7 @@ import aerolinea.datosAsiento.PrecioMaximoAsiento;
 import aerolinea.datosAsiento.PrecioMinimoAsiento;
 import aerolinea.datosAsiento.UbicacionAsiento;
 import aerolinea.datosAsiento.UbicacionAsientoVuelo;
+import aerolinea.datosAsiento.excepcionesAsiento.CodigoAsientoException;
 import aerolinea.datosAsiento.excepcionesAsiento.PrecioNegativoException;
 import aerolinea.excepcionesAerolinea.PorcentajeIncorrectoException;
 import aerolinea.vuelo.AsientoGeneral;
@@ -74,7 +75,7 @@ public class AerolineaOceanicTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws CodigoAsientoException {
         try {
             PrecioAsiento precio1 = new PrecioAsiento(125.50);
             PrecioAsiento precio2 = new PrecioAsiento(250.50);
@@ -84,12 +85,6 @@ public class AerolineaOceanicTest {
             ClaseAsientoVuelo clase2 = new ClaseAsientoVuelo(ClasesAsientoVuelo.PRIMERA_CLASE);
             UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             UbicacionAsiento ubicacion2 = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
-            
-            
-            /*losAngeles = new CiudadDestino("LA");
-            buenosAires = new CiudadPartida("BA");
-            
-            fechaSalida = new FechaFlexible("2018/11/01");*/
             
                         
             asuncion = new CiudadPartida("ASU");

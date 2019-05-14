@@ -17,6 +17,8 @@ import java.util.LinkedList;
 import java.util.List;
 import usuario.Usuario;
 
+
+
 public class AerolineaOceanic extends AerolineaGeneral{
     final static double RECARGO_AEROLINEA = 0.10;
     public AerolineaOceanic() throws PorcentajeIncorrectoException{
@@ -39,6 +41,7 @@ public class AerolineaOceanic extends AerolineaGeneral{
         return nuevoCodigoCiudad;
     }
     
+    @Override
     public List<AsientoGeneralVuelo> asientosDisponibles(Busqueda parametrosBusqueda) {
         LinkedList<AsientoGeneralVuelo> asientosDisponibles = obtenerAsientosVuelos();
         List<AsientoGeneralVuelo> asientosCumplenSolicitud = parametrosBusqueda.asientosCumplenRequisitoBusqueda(asientosDisponibles);

@@ -86,12 +86,6 @@ public class AerolineaOceanicTest {
             UbicacionAsiento ubicacion = new UbicacionAsiento(UbicacionAsientoVuelo.VENTANA);
             UbicacionAsiento ubicacion2 = new UbicacionAsiento(UbicacionAsientoVuelo.PASILLO);
             
-            
-            /*losAngeles = new CiudadDestino("LA");
-            buenosAires = new CiudadPartida("BA");
-            
-            fechaSalida = new FechaFlexible("2018/11/01");*/
-            
                         
             asuncion = new CiudadPartida("ASU");
             paris = new CiudadPartida("PAR");
